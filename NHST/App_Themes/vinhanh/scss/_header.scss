@@ -1,0 +1,270 @@
+.navbar-toggle {
+    display: none;
+    outline: none;
+    float: right;
+    padding: 24px 8px;
+    position: relative;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    background-color: transparent;
+    background-image: none;
+    cursor: pointer;
+    
+    .icon-bar {
+        @include transition(.3s);
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+        background-color: $icon-bar;
+        & +.icon-bar {
+            margin-top: 5px;
+        } 
+    }
+    &:hover{
+        
+    }
+    &.open{
+        .icon-bar:nth-child(1){
+            -webkit-transform: translate(-1px, 7px) rotate(-225deg);
+            -moz-transform: translate(-1px, 7px) rotate(-225deg);
+            -o-transform: translate(-1px, 7px) rotate(-225deg);
+            -ms-transform: translate(-1px, 7px) rotate(-225deg);
+            transform: translate(-1px, 7px) rotate(-225deg);
+        }
+        .icon-bar:nth-child(2){
+            opacity: 0;
+        }
+        .icon-bar:nth-child(3){
+            -webkit-transform: translate(-1px, -7px) rotate(225deg);
+            -moz-transform: translate(-1px, -7px) rotate(225deg);
+            -ms-transform: translate(-1px, -7px) rotate(225deg);
+            -o-transform: translate(-1px, -7px) rotate(225deg);
+            transform: translate(-1px, -7px) rotate(225deg);
+        }
+    }
+    
+    
+}
+.has-dropdown{
+    position: relative;
+    >a{
+        &::after {
+            content: "\f078";
+            /* >> Name of the FA free font (mandatory)
+                      - 'Font Awesome 5 Free' for Regular and Solid symbols;
+                      - 'Font Awesome 5 Brand' for Brands symbols. */
+            font-family: 'Font Awesome 5 Free';
+            /* >> Weight of the font (mandatory)
+                      - 400 for Regular and Brands symbols;
+                      - 900 for Solid symbols. */
+            font-weight: 900;
+            /* >> Optional styling: */
+            float: right;
+            margin-left: 5px;
+        }
+    }
+    &:hover,
+    &:focus {
+        .dropdown-menu{
+            display: block;
+            -webkit-transform: perspective(1200px) rotateX(0deg);
+            transform: perspective(1200px) rotateX(0deg);
+        }
+    }
+}
+.dropdown-menu{
+    position: absolute;
+    z-index: 1;
+    width: auto;
+    top: 90%;
+    left: 0;
+    display: block;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -ms-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -o-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: $mega-hover;
+    @include transition(.3s);
+    transition-timing-function: cubic-bezier(0.7,0,0.185,1);
+    -webkit-transition-timing-function: cubic-bezier(0.7,0,0.185,1);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transform: perspective(1200px) rotateX(-90deg) ;
+    transform: perspective(1200px) rotateX(-90deg) ;
+    color: #fff;
+    li {
+      display: block;
+      float: none;
+      >a{
+          line-height: 20px;
+          display: block;
+          padding: 8px 15px;
+          white-space: nowrap;
+          color: white;
+          &:hover{
+            background-color: rgba(#000,.2);
+            color: #fff;
+          }
+      }
+    }
+}
+
+/* .collapse{
+    position: relative;
+    .collapse-heading{
+        @extend .clear;
+        position: relative;
+        line-height: 20px;
+        cursor: pointer;
+        font-size: 12px;
+        padding: 10px 0;
+        .indicator{
+            margin-left: 10px;
+            display: inline-block; 
+            font: normal normal normal 14px/1 FontAwesome;
+            font-size: inherit;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: bold;
+            &:before{
+                content: "\f107";
+                line-height: 20px;
+            }
+        }
+    }
+    .collapse-body{
+        display: none;
+        position: relative;
+        @extend .clear;
+        padding: 10px 0;
+    }
+    &.on{
+        .collapse-heading{
+            .indicator{
+                &:before{
+                    content: "\f106";
+                }
+            }
+        }
+    }
+} */
+
+
+#header {
+  width: 100%;
+  z-index: 9999;
+  box-shadow: 0 0px 28px 2px rgba(0, 0, 0, 0.6);
+  @include transition(.3s);
+
+  .hd-main {
+    position: relative;
+
+    .logo-auth {
+      .logo {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 230px;
+      height: 120px;
+      transform: translate(-40%, 0);
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      -webkit-clip-path: polygon(100% 0, 100% 80px, 200px 100%, 30px 100%, 0 80px, 0 0);
+      clip-path: polygon(100% 0, 100% 80px, 200px 100%, 30px 100%, 0 80px, 0 0);
+
+      > a {
+          z-index: 1;
+        }
+      }
+
+      .hd-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 18px 0;
+
+        .auth {
+          margin-right: 30px;
+
+          .in-out {
+            position: relative;
+
+            .auth__log {
+              &:hover {
+                ~ .status-wrap {
+                  display: block;
+                }
+              }
+            }
+
+            @include auth-hover();
+
+
+            > a {
+              &:hover {
+                font-weight: 500;
+              }
+            }
+
+          }
+
+          
+        }
+
+        .button {
+          .btn {
+            width: 200px;
+            height: 45px;
+            line-height: 27px;
+            padding-right: unset;
+            padding-left: 35px;
+
+            > i {
+              right: unset;
+              left: 0;
+              font-size: 2.5rem;
+              padding: 1rem 1.5rem;
+              background-color: unset;
+            }
+          }
+        }
+      }
+    }
+
+    .nav-ul {
+      float: left;
+      list-style: none;
+      padding: 7px 0;
+
+
+      > li {
+        float: left;
+        display: block;
+        padding: 1rem 0;
+
+        a {
+          display: block;
+          padding: .5rem 1.7rem;
+          border-radius: .5rem;
+          color: $nav-item;
+          font-size: 1.4rem;
+          line-height: 3.6rem;
+          font-weight: 500;
+
+          &:hover {
+            background-color: $nav-hover;
+            color: $nav-item__hover;
+          }
+        }
+        
+      }
+      
+    }
+  }
+}

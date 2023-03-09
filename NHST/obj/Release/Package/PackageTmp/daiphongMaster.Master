@@ -1,0 +1,361 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="daiphongMaster.master.cs" Inherits="NHST.daiphongMaster" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+    <title>Đại Phong Logistics</title>
+    <link rel="stylesheet" href="/App_Themes/daiphong/css/animate.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/daiphong/css/style.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/daiphong/css/style-P.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/daiphong/css/responsive.css" media="all">
+    <link href="/App_Themes/NewUI/js/select2/select2.css" rel="stylesheet" />
+    <link href="/App_Themes/NewUI/js/sweet/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <script src="/App_Themes/daiphong/js/jquery-1.9.1.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <header id="header">
+            <div class="hd-above">
+                <div class="all wrap">
+                    <div class="hd-left">
+                        Tỷ giá USD:                        
+                        <span class="hl-txt">
+                            <asp:Literal ID="ltrCurrency" runat="server"></asp:Literal>
+                        </span>
+                    </div>
+                    <div class="hd-right">
+                        <asp:Literal ID="ltrConfig1" runat="server"></asp:Literal>
+                        <asp:Literal ID="ltrNotis" runat="server"></asp:Literal>
+                        <div class="button">
+                            <asp:Literal ID="ltrLogin" runat="server"></asp:Literal>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hd-main">
+                <div class="all">
+                    <div class="logo">
+                        <a href="/trang-chu">
+                            <img src="/App_Themes/daiphong/images/logo.png" alt=""></a>
+                    </div>
+                    <div class="navbar-toggle">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <div class="nav-wrap" id="hd-nav">
+                        <div class="nav-overlay"></div>
+                        <ul class="nav-ul clear">
+                            <li class="nav-item trangchu "><a class="nav-item__name" href="/trang-chu">Trang chủ</a></li>
+                            <li class="nav-item baogia"><a class="nav-item__name" href="/chuyen-muc/bao-gia">Báo giá</a></li>                            
+                            <li class="nav-item dichvu"><a class="nav-item__name" data-href="#firm-services" href="/chuyen-muc/dich-vu">Dịch vụ</a></li>                            
+                            <li class="nav-item tinhnang"><a class="nav-item__name" data-href="#featured-funcs" href="/chuyen-muc/tinh-nang">Tính năng</a></li>
+                            <li class="nav-item huongdan"><a class="nav-item__name" href="/chuyen-muc/huong-dan">Hướng dẫn</a></li>                            
+                            <%--<li class="nav-item lienhe"><a class="nav-item__name" data-href="#sec-contact" href="javascript:;">Liên hệ</a></li>--%>
+                            <%--<li class="nav-item">
+                                <a class="nav-item__name" href="">Trang chủ</a>
+                            </li>
+                            <li class="nav-item has-mega-menu">
+                                <a href="#">Giới thiệu</a>
+                                <ul class="mega-menu">
+                                    <li>
+                                        <a href="#">Giới thiệu chung</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Chuyên gia tư vấn</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Đối tác</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Hỗ trợ năng lực </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-item__name" href="">Hướng dẫn</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-item__name" href="">Biểu phí</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-item__name" href="">Chính sách</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-item__name" href="">Công cụ đặt hàng</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-item__name" href="">Đặt hàng mobile</a>
+                            </li>--%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer id="footer">
+            <div class="ft-infos">
+                <div class="all">
+                    <div class="ft-logo">
+                        <h1 class="logo-text">
+                            <a href="/trang-chu">Dai Phong
+                                <br>
+                                <span class="hl-txt">Logistics</span>
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="ftif-col">
+                        <p class="item__title">CÔNG TY</p>
+                        <ul class="ft-nav">
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Về chúng tôi</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Điều khoản</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ftif-col">
+                        <p class="item__title">Ngành hàng</p>
+                        <ul class="ft-nav">
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Thời trang nữ</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Thời trang nam </a>
+                            </li>
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Đồ dùng cho bé </a>
+                            </li>
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Đồ Phượt </a>
+                            </li>
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Nội thất </a>
+                            </li>
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Điện tử</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ftif-col">
+                        <p class="item__title">Hổ trợ</p>
+                        <ul class="ft-nav">
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Hướng dẫn</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Nạp tiền</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-caret-right"></i>
+                                <a href="#">Câu hỏi thưởng gặp</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ftif-col">
+                        <p class="item__title">Liên hệ</p>
+                        <asp:Literal ID="ltrConfig2" runat="server"></asp:Literal>
+                    </div>
+                </div>
+            </div>
+            <div class="ft-sys">
+                <div class="all center-txt">
+                    ©
+                    <a href="https://mona-media.com/dich-vu/thiet-ke-website-chuyen-nghiep/" target="_blank" title="Công ty thiế kế website chuyên nghiệp">
+                        <img src="https://mona-media.com/logo.png" style="width: 20px; vertical-align: sub;" alt="MonaMedia">
+                    </a>&nbsp;
+       
+                    <strong>Mona Media</strong>
+                </div>
+            </div>
+        </footer>
+        <a href="javascript:;" class="scroll-top-link" id="scroll-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+        <script src="/App_Themes/daiphong/js/slick/slick.min.js"></script>
+        <script src="/App_Themes/daiphong/js/wow.min.js"></script>
+        <script src="/App_Themes/daiphong/js/detectmobilebrowser.js"></script>
+        <script src="/App_Themes/daiphong/js/master.js"></script>
+        <script src="/App_Themes/NewUI/js/sweet/sweet-alert.js" type="text/javascript"></script>
+        <script src="/App_Themes/NewUI/js/select2/select2.min.js"></script>
+        <script async="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_roqaeKE7ULRUNw5wG0i8TqvWRsSJ2JY&amp;callback=loadGoogleMap"></script>
+        <script>
+            var wow = new WOW(
+              {
+                  boxClass: 'wow',      // animated element css class (default is wow)
+                  animateClass: 'animated', // animation css class (default is animated)
+                  offset: 150,          // distance to the element when triggering the animation (default is 0)
+                  mobile: false,       // trigger animations on mobile devices (default is true)
+                  live: true,       // act on asynchronously loaded content (default is true)
+                  callback: function (box) {
+                      // the callback is fired every time an animation is started
+                      // the argument that is passed in is the DOM node being animated
+                  },
+                  scrollContainer: null,    // optional scroll container selector, otherwise use window,
+                  resetAnimation: true,     // reset animation on end (default is true)
+              }
+            );
+            wow.init();
+        
+            jQuery(document).ready(function () {
+
+                //Check window screen
+
+                if (!jQuery.browser.mobile) {
+
+                }
+
+
+                //Guide swap tab
+                $('#guide-swap-tab .guide-info').not('[tab=dangki]').hide();
+                $('.guide-step__tab').on('click', function (e) {
+                    e.stopPropagation();
+                    var tab = $(this).attr('tab');
+                    $(this).addClass('home-guide__current').siblings().removeClass('home-guide__current');
+                    $(`#guide-swap-tab .guide-info[tab=${tab}]`).show().siblings().hide();
+                })
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                LoadSelect();
+                setActiveMenu(window.location.pathname);
+                //$('#main-nav-area').sticky({ zIndex: 999 });
+            });
+            function LoadSelect() {
+                $(".select2").select2({});
+                setActive();
+            }
+            function setActive() {
+                $('body').addClass('child-page');
+            }
+            function setActiveMenu(path) {
+                if (path.toLowerCase().indexOf('/trang-chu') != -1) {
+                    $('.nav-ul > li.trangchu').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/bao-gia') != -1) {
+                    $('.nav-ul li.baogia').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/dich-vu') != -1) {
+                    $('.nav-ul li.dichvu').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/danh-sach-san-pham') != -1) {
+                    $('.nav-ul li.sanpham').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/tinh-nang') != -1) {
+                    $('.nav-ul li.tinhnang').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/lien-he') != -1) {
+                    $('.nav-ul li.lienhe').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/huong-dan') != -1) {
+                    $('.nav-ul li.huongdan').addClass("current");
+                }
+            }
+            function OnClientFileSelected(sender, args) {
+                if ($telerik.isIE) return;
+                else {
+                    truncateName(args);
+                    //var file = args.get_fileInputField().files.item(args.get_rowIndex());
+                    var file = args.get_fileInputField().files.item(0);
+                    showThumbnail(file, args);
+                }
+            }
+
+
+            function truncateName(args) {
+                var $span = $(".ruUploadProgress", args.get_row());
+                var text = $span.text();
+                if (text.length > 23) {
+                    var newString = text.substring(0, 23) + '...';
+                    $span.text(newString);
+                }
+            }
+
+            function showThumbnail(file, args) {
+
+                var image = document.createElement("img");
+
+                image.file = file;
+                image.className = "ab img-responsive";
+
+                var $row = $(args.get_row());
+                $row.parent().className = "row ruInputs list-unstyled";
+                $row.append(image);
+
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                }(image));
+                var ret = reader.readAsDataURL(file);
+                var canvas = document.createElement("canvas");
+
+                ctx = canvas.getContext("2d");
+                image.onload = function () {
+                    ctx.drawImage(image, 100, 100);
+                };
+
+            }
+            $('ul#pri-menu > li > a').click(function (e) {
+                e.preventDefault();
+                var target = $(this).data('href');
+                if (target !== undefined) {
+                    $("body,html").animate({ scrollTop: $(target).offset().top }, 500);
+                } else {
+                    location.href = $(this).attr('href');
+                }
+            });
+            function updatestatusnoti(id, username, orderid) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/UpdateNotification",
+                    data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            window.location.href = "/chi-tiet-don-hang/" + orderid;
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+        </script>
+    </form>
+</body>
+</html>

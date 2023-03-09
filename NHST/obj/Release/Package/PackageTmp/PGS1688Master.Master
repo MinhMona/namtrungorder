@@ -1,0 +1,521 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PGS1688Master.master.cs" Inherits="NHST.PGS1688Master" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <title>Pegasus</title>
+    <link rel="stylesheet" href="/App_Themes/PGS1688/js/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="/App_Themes/PGS1688/css/style.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/PGS1688/css/style-p.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/PGS1688/css/responsive.css" media="all">
+    <link href="/App_Themes/NewUI/js/select2/select2.css" rel="stylesheet" />
+    <link href="/App_Themes/NewUI/js/sweet/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <script src="/App_Themes/PGS1688/js/jquery-1.9.1.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id='fb-root'></div>
+        <script>
+        (jQuery);
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <%--<style type="text/css">
+            .hisella-messages {
+                position: fixed;
+                bottom: 0;
+                right: 0;
+                z-index: 999999;
+            }
+
+            .hisella-messages-outer {
+                position: relative;
+            }
+
+            #hisella-minimize {
+                background: #3b5998;
+                font-size: 14px;
+                color: #fff;
+                padding: 3px 10px;
+                position: absolute;
+                top: -34px;
+                left: -1px;
+                border: 1px solid #E9EAED;
+                cursor: pointer;
+            }
+
+            @media screen and (max-width:768px) {
+                #hisella-facebook {
+                    opacity: 0;
+                }
+
+                .hisella-messages {
+                    bottom: -300px;
+                    right: -135px;
+                }
+            }
+        </style>
+        <div id='fb-root'></div>
+        <script>
+        (function ($) {
+            $(document).ready(function () {
+                $('.hisella-messages').animate({ bottom: '-300px' }).animate({ right: '-135px' }, 400,
+                           function () { $('#hisella-facebook').css('opacity', 0) });
+                $('#hisella-minimize').click(function () {
+                    if ($('#hisella-facebook').css('opacity') == 0) {
+                        $('#hisella-facebook').css('opacity', 1); $('.hisella-messages').animate({ right: '0' }).animate({ bottom: '0' });
+                    } else { $('.hisella-messages').animate({ bottom: '-300px' }).animate({ right: '-135px' }, 400, function () { $('#hisella-facebook').css('opacity', 0) }); }
+                })
+            });
+        })(jQuery);
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="hisella-messages">
+            <div class="hisella-messages-outer">
+                <div id="hisella-minimize">TƯ VẤN MIỄN PHÍ </div>
+                <div id="hisella-facebook" class='fb-page' data-adapt-container-width='true' data-height='350'
+                    data-hide-cover='false' data-href='https://www.facebook.com/pegasusvietnam.vn/' data-show-facepile='true' data-show-posts='false' data-small-header='false' data-tabs='messages' data-width='300'></div>
+            </div>
+        </div>--%>
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function () {
+                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/5b597eaddf040c3e9e0bfa19/default';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <asp:Literal ID="ltr_infor" runat="server"></asp:Literal>
+        <header id="header" style="clear: both; border-bottom: solid 1px #e1e1e1">
+            <div class="hd-top">
+                <div class="all">
+                    <asp:Literal ID="ltrTopLeft" runat="server"></asp:Literal>
+                    <%--<div class="hdt__left">
+                        <div>Tỉ giá ¥ = 3650</div>
+                        <div>Hotline: <a href="tel:+">0126.922.0162</a></div>
+                        <div>Giờ hoạt động: 08:30am - 06:30 pm</div>
+                        <div>Email: <a href="mailto:">admin@mona-media.com</a></div>
+                    </div>--%>
+                    <div class="hdt__right">
+                        <asp:Literal ID="ltrLogin" runat="server"></asp:Literal>
+                        <%--<div class="auth-button">
+                            <a href="" class="mn-btn login-btn">Đăng nhập</a>
+                            <a href="" class="mn-btn reg-btn">Đăng ký</a>
+                        </div>--%>
+
+                        <!-- <div class="acc-info">
+            <p>Cino Chu <i class="fas fa-chevron-down color1"></i></p>
+            <div class="status">
+              <div class="status-wrap">
+  
+                <div class="status__header">
+                  <h4>VIP 1</h4>
+                </div>
+  
+                <div class="status__body">
+                  <div class="level">
+                    <div class="level__info">
+                      <p>Level</p>
+                      <p class="rank">Vip 1</p>
+                    </div>
+        
+                    <div class="level__process">
+                      <span style="width: 50%"></span>
+                    </div>
+                  </div>
+                  <div class="balance">
+                    <p>
+                      Số dư:
+                    </p>
+                    <div class="balance__number">
+                      <p class="vnd">25.500đ</p>
+                      <p class="cny">2450Y</p>
+                    </div>
+                  </div>
+                  <div class="links">
+                    <a href="">
+                      Thông tin tài khoản
+                      <i class="fa fa-caret-right"></i>
+                    </a>
+                  </div>
+                  <div class="links">
+                    <a href="">
+                      Đơn hàng của bạn
+                      <i class="fa fa-caret-right"></i>
+                    </a>
+                  </div>
+                  <div class="links">
+                    <a href="">
+                      Lịch sử giao dịch
+                      <i class="fa fa-caret-right"></i>
+                    </a>
+                  </div>
+                </div>
+  
+                <div class="status__footer">
+                  <a href="" class="ft-btn">ĐĂNG XUẤT</a>
+                </div>
+  
+              </div>
+            </div>
+          </div> -->
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="hd-main">
+                <div class="all">
+                    <div class="hdm-wrap">
+                        <div class="logo">
+                            <div class="img">
+                                <a href="/">
+                                    <img src="/App_Themes/PGS1688/images/header-logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="hdm__right">
+                            <div class="navbar-toggle">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </div>
+                            <div class="nav-wrap">
+                                <div class="nav-overlay"></div>
+                                <ul class="nav-ul">
+                                    <li class="nav-item trangchu firstnav">
+                                        <span class="triangle"></span>
+                                        <a href="/trang-chu">Trang chủ</a>
+                                    </li>
+                                    <li class="nav-item gioithieu">
+                                        <a href="/chuyen-muc/gioi-thieu">Giới thiệu</a>
+                                    </li>
+                                    <li class="nav-item baogia">
+                                        <a class="nav-item__name" href="/chuyen-muc/bang-gia">Bảng giá</a>
+                                    </li>
+                                    <li class="nav-item dichvu">
+                                        <a href="/chuyen-muc/dich-vu">Dịch vụ</a>
+                                    </li>
+                                    <li class="nav-item chinhsach">
+                                        <a class="nav-item__name " href="/chuyen-muc/chinh-sach">Chính sách</a>
+                                    </li>
+                                    <li class="nav-item huongdan">
+                                        <a class="nav-item__name " href="/chuyen-muc/huong-dan">Hướng dẫn</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer id="footer">
+            <div class="ft-infos">
+                <div class="all">
+                    <div class="logo">
+                        <div class="img">
+                            <a href="/">
+                                <img src="/App_Themes/PGS1688/images/footer-logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="navct-wrap">
+                        <div class="navct__child">
+                            <div class="navct-tt">
+                                <h4 class="hd">Công ty</h4>
+                            </div>
+                            <ul class="list-navct">
+                                <li class="navct__item"><a href="">Về chúng tôi</a></li>
+                                <li class="navct__item"><a href="">Điều khoản</a></li>
+                            </ul>
+                        </div>
+                        <div class="navct__child">
+                            <div class="navct-tt">
+                                <h4 class="hd">Ngành hàng</h4>
+                            </div>
+                            <ul class="list-navct">
+                                <li class="navct__item"><a href="">Thời trang nữ</a></li>
+                                <li class="navct__item"><a href="">Thời trang nam</a></li>
+                                <li class="navct__item"><a href="">Đồ dùng trẻ em</a></li>
+                                <li class="navct__item"><a href="">Đồ phượt</a></li>
+                                <li class="navct__item"><a href="">Nội thất</a></li>
+                            </ul>
+                        </div>
+                        <div class="navct__child">
+                            <div class="navct-tt">
+                                <h4 class="hd">Hỗ trợ</h4>
+                            </div>
+                            <ul class="list-navct">
+                                <li class="navct__item"><a href="">Hướng dẫn</a></li>
+                                <li class="navct__item"><a href="">Nạp tiền</a></li>
+                                <li class="navct__item"><a href="">Câu hỏi thường gặp</a></li>
+                            </ul>
+                        </div>
+                        <div class="navct__child">
+                            <div class="navct-tt">
+                                <h4 class="hd">Liên hệ</h4>
+                            </div>
+                            <ul class="list-navct">
+                                <li class="navct__item">Hotline:
+                                    <asp:Literal ID="ltrHotline" runat="server"></asp:Literal></li>
+                                <li class="navct__item">Email:
+                                    <asp:Literal ID="ltrEmail" runat="server"></asp:Literal></li>
+                                <li class="navct__item">Địa chỉ:
+                                    <asp:Literal ID="ltrAddress" runat="server"></asp:Literal></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="facebook-frame">
+                        <div class="navct-tt">
+                            <h4 class="hd">Kết nối với chúng tôi</h4>
+                        </div>
+                        <div class="img">
+                            <div class="fb-page" data-href="https://www.facebook.com/pegasusvietnam.vn/" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
+                                <blockquote cite="https://www.facebook.com/pegasusvietnam.vn/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/pegasusvietnam.vn/">Pegasus Việt Nam - Logistic Quốc Tế</a></blockquote>
+                            </div>
+                            <%--<img src="/App_Themes/PGS1688/images/facebook-api.jpg" alt="">--%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ft-sys">
+                <div class="all center-txt">
+                    &copy; Bản quyền thuộc về Pegasus. Thiết kế website bởi
+                    <img src="https://mona-media.com/logo.png" style="width: 20px; vertical-align: sub;" alt="MonaMedia">
+                    <a href="https://mona-media.com/" title="Mona Media"><strong>Mona Media</strong></a>
+                </div>
+            </div>
+        </footer>
+
+        <a href="javascript:;" class="scroll-top-link" id="scroll-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+        <script src="/App_Themes/PGS1688/js/slick/slick.min.js"></script>
+        <script src="/App_Themes/NewUI/js/sweet/sweet-alert.js" type="text/javascript"></script>
+        <script src="/App_Themes/NewUI/js/select2/select2.min.js"></script>
+        <script src="/App_Themes/PGS1688/js/master.js"></script>
+        <script async="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_roqaeKE7ULRUNw5wG0i8TqvWRsSJ2JY&amp;callback=loadGoogleMap"></script>
+
+        <script>
+            jQuery(document).ready(function () {
+
+                var step_tab = $('.steps-order .step__item.active').attr('step-nav');
+                $(`.steps-order ${step_tab}`).show().siblings().hide();
+                $('.steps-order .step__item').on('click', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var navct = $(this).attr('step-nav');
+                    $(`.steps-order ${navct}`).fadeIn().siblings().hide();
+                })
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                LoadSelect();
+                setActiveMenu(window.location.pathname);
+                //$('#main-nav-area').sticky({ zIndex: 999 });
+            });
+            function LoadSelect() {
+                $(".select2").select2({});
+                setActive();
+            }
+            function setActive() {
+                $('body').addClass('child-page');
+            }
+            function setActiveMenu(path) {
+                if (path.toLowerCase().indexOf('/trang-chu') != -1) {
+                    $('.nav-ul li.trangchu').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/bang-gia') != -1) {
+                    $('.nav-ul li.baogia').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/dich-vu') != -1) {
+                    $('.nav-ul li.dichvu').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/chinh-sach') != -1) {
+                    $('.nav-ul li.chinhsach').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/gioi-thieu') != -1) {
+                    $('.nav-ul li.gioithieu').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/huong-dan') != -1) {
+                    $('.nav-ul li.huongdan').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/tin-tuc') != -1) {
+                    $('.nav-ul li.tintuc').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/tuyen-dung') != -1) {
+                    $('.nav-ul li.tuyendung').addClass("current-menu-item");
+                }
+            }
+            function OnClientFileSelected(sender, args) {
+                if ($telerik.isIE) return;
+                else {
+                    truncateName(args);
+                    //var file = args.get_fileInputField().files.item(args.get_rowIndex());
+                    var file = args.get_fileInputField().files.item(0);
+                    showThumbnail(file, args);
+                }
+            }
+
+
+            function truncateName(args) {
+                var $span = $(".ruUploadProgress", args.get_row());
+                var text = $span.text();
+                if (text.length > 23) {
+                    var newString = text.substring(0, 23) + '...';
+                    $span.text(newString);
+                }
+            }
+
+            function showThumbnail(file, args) {
+
+                var image = document.createElement("img");
+
+                image.file = file;
+                image.className = "ab img-responsive";
+
+                var $row = $(args.get_row());
+                $row.parent().className = "row ruInputs list-unstyled";
+                $row.append(image);
+
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                }(image));
+                var ret = reader.readAsDataURL(file);
+                var canvas = document.createElement("canvas");
+
+                ctx = canvas.getContext("2d");
+                image.onload = function () {
+                    ctx.drawImage(image, 100, 100);
+                };
+
+            }
+            $('ul#pri-menu > li > a').click(function (e) {
+                e.preventDefault();
+                var target = $(this).data('href');
+                if (target !== undefined) {
+                    $("body,html").animate({ scrollTop: $(target).offset().top }, 500);
+                } else {
+                    location.href = $(this).attr('href');
+                }
+            });
+            function updatestatusnoti(id, username, orderid) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/UpdateNotification",
+                    data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            window.location.href = "/chi-tiet-don-hang/" + orderid;
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+            function isEmpty(str) {
+                return !str.replace(/^\s+/g, '').length; // boolean (`true` if field is empty)
+            }
+            function closewebinfo() {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/closewebinfo",
+                    //data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            $(".webinfo").remove();
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+        </script>
+        <style>
+            .webinfo {
+                background: #e1e1e1;
+                color: #000;
+                padding: 20px 0;
+                float: left;
+                width: 100%;
+                clear: both;
+                display: block;
+            }
+
+                .webinfo .textcontent {
+                    float: left;
+                    width: 100%;
+                    position: relative;
+                }
+
+            .icon-close-info {
+                position: absolute;
+                right: 0;
+                top: -20px;
+                width: 25px;
+                height: 25px;
+                color: #000;
+                font-size: 16px;
+            }
+
+            .all-info {
+                width: 100%;
+            }
+
+            .main-info {
+                float: left;
+                width: 100%;
+                padding: 0 15px;
+            }
+        </style>
+    </form>
+</body>
+</html>

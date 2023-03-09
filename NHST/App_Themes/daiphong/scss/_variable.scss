@@ -1,0 +1,125 @@
+@charset "utf-8";
+//
+//VARIABLE :: BEGIN
+//
+$main-w : 1170;
+$sp-w : 700;
+
+$primary-color: #2772db;
+$second-color: #3ab1c8;
+$quater-color: #070f4e;
+$quin-color: #d62d20;
+$senary-color: #008744;
+$primary-txt-color: #000;
+
+$font-p: "PoppinsVN", sans-serif;
+$font-h: "Oswald VNF", sans-serif;
+$font-alt: 'SF UI Display', sans-serif;
+//
+//VARIABLE :: END
+//
+
+
+//
+//MIXIN :: BEGIN
+//
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+          box-shadow: $shadow;
+}
+@mixin coverbg() {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+@mixin transition($s){
+    -webkit-transition: all $s ease-in-out;
+    -moz-transition: all $s ease-in-out;
+    -o-transition: all $s ease-in-out;
+    -ms-transition: all $s ease-in-out;
+    transition: all $s ease-in-out;
+}
+
+@mixin btn-color($color) {
+  background-color: $color;
+  color: white;
+  &:hover{
+      color: white;
+      background-color: darken($color, 10%);
+  }
+}
+
+@mixin abso($t, $l) {
+  position: absolute;
+  top: $t;
+  left: $l;
+}
+
+@mixin fz-fw ($fz, $fw, $lh: normal) {
+  font-size: $fz;
+  font-weight: $fw;
+  line-height: $lh;
+}
+
+@mixin flex($dir, $jc) {
+  display: flex;
+  flex-flow: $dir wrap;
+  justify-content: $jc;
+} 
+
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+  
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+
+@mixin media($point) {
+  @media screen and (max-width: $point)  { @content; }
+}  
+
+  
+//
+//MIXIN :: END
+//
+
+//media template
+// @include media(1199px){
+//    width: 970px;   
+//}
+//@include media(1199px){
+//    width: 970px;   
+//}
+//@include media(991px){
+//    width: 750px;   
+//}
+//@include media(767px){
+//    width: 100%;   
+//}
+%clear {
+    &:after{
+        content:"";
+        display:table;
+        clear:both;
+    }
+    &:before{
+        display: table;
+        content: " ";
+    }
+}

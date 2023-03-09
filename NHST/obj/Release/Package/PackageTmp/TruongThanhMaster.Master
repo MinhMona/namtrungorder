@@ -1,0 +1,406 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TruongThanhMaster.master.cs" Inherits="NHST.TruongThanhMaster" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+    <title></title>
+    <link rel="stylesheet" href="/App_Themes/TruongThanh/js/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="/App_Themes/TruongThanh/css/style.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/TruongThanh/css/style-p.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/TruongThanh/css/responsive.css" media="all">
+    <link href="/App_Themes/NewUI/js/select2/select2.css" rel="stylesheet" />
+    <link href="/App_Themes/NewUI/js/sweet/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <script src="/App_Themes/TruongThanh/js/jquery-1.9.1.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <asp:Literal ID="ltr_infor" runat="server"></asp:Literal>
+        <header id="header" style="clear:both;">
+            <div class="all">
+                <div class="hd-main">
+                    <div class="logo">
+                        <div class="img">
+                            <a href="/">
+                                <img src="/App_Themes/TruongThanh/images/logo.jpg" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="hd-right">
+                        <div class="hd-top">
+                            <asp:Literal ID="ltrTopLeft" runat="server"></asp:Literal>
+                            <div class="hdt__auth">
+                                <asp:Literal ID="ltrLogin" runat="server" Visible="true"></asp:Literal>
+                               <%-- <div class="hdt__auth-block">
+                                    <a href="#">Đăng ký</a> / <a href="#">Đăng nhập</a>
+                                </div>
+                                <div class="acc-info">
+                                    <p>Cino Chu <i class="fas fa-chevron-down color1"></i></p>
+                                    <div class="status">
+                                        <div class="status-wrap">
+                                            <div class="status__header">
+                                                <h4>VIP 1</h4>
+                                            </div>
+                                            <div class="status__body">
+                                                <div class="level">
+                                                    <div class="level__info">
+                                                        <p>Level</p>
+                                                        <p class="rank">Vip 1</p>
+                                                    </div>
+                                                    <div class="level__process">
+                                                        <span style="width: 50%"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="balance">
+                                                    <p>
+                                                        Số dư:
+                                                    </p>
+                                                    <div class="balance__number">
+                                                        <p class="vnd">25.500đ</p>
+                                                        <p class="cny">2450Y</p>
+                                                    </div>
+                                                </div>
+                                                <div class="links">
+                                                    <a href="">Thông tin tài khoản <i class="fa fa-caret-right"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="links">
+                                                    <a href="">Đơn hàng của bạn <i class="fa fa-caret-right"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="links">
+                                                    <a href="">Lịch sử giao dịch <i class="fa fa-caret-right"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="status__footer">
+                                                <a href="" class="ft-btn">ĐĂNG XUẤT</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>--%>
+                            </div>
+                        </div>
+                        <div class="hd-bot">
+                            <div class="navbar-toggle">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </div>
+                            <div class="nav-wrap">
+                                <div class="nav-overlay"></div>
+                                <ul class="nav-ul">
+                                    <li class="nav-item trangchu">                                        
+                                        <a href="/trang-chu">Trang chủ</a>
+                                    </li>
+                                    <li class="nav-item gioithieu">
+                                        <a href="/chuyen-muc/gioi-thieu">Giới thiệu</a>
+                                    </li>
+                                    <li class="nav-item baogia">
+                                        <a class="nav-item__name" href="/chuyen-muc/bang-gia">Bảng giá</a>
+                                    </li>
+                                    <li class="nav-item huongdan">
+                                        <a class="nav-item__name " href="/chuyen-muc/huong-dan">Hướng dẫn</a>
+                                    </li>
+                                    <li class="nav-item chinhsach">
+                                        <a class="nav-item__name " href="/chuyen-muc/chinh-sach">Chính sách</a>
+                                    </li>
+                                    <li>
+                                        <a href="/cong-cu">Công cụ đặt hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="/cong-cu-dat-hang">Ứng dụng mobile</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer id="footer">
+            <div class="ft-infos">
+                <div class="all">
+                    <div class="logo">
+                        <div class="img">
+                            <a href="">
+                                <img src="/App_Themes/TruongThanh/images/footer-logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="navct-wrap">
+                        <div class="navct__child">
+                            <div class="navct-tt">
+                                <h4 class="hd">Công ty</h4>
+                            </div>
+                            <ul class="list-navct">
+                                <li class="navct__item"><a href="">Về chúng tôi</a></li>
+                                <li class="navct__item"><a href="">Điều khoản</a></li>
+                            </ul>
+                        </div>
+                        <div class="navct__child">
+                            <div class="navct-tt">
+                                <h4 class="hd">Ngành hàng</h4>
+                            </div>
+                            <ul class="list-navct">
+                                <li class="navct__item"><a href="">Thời trang nữ</a></li>
+                                <li class="navct__item"><a href="">Thời trang nam</a></li>
+                                <li class="navct__item"><a href="">Đồ dùng trẻ em</a></li>
+                                <li class="navct__item"><a href="">Đồ phượt</a></li>
+                                <li class="navct__item"><a href="">Nội thất</a></li>
+                            </ul>
+                        </div>
+                        <div class="navct__child">
+                            <div class="navct-tt">
+                                <h4 class="hd">Hỗ trợ</h4>
+                            </div>
+                            <ul class="list-navct">
+                                <li class="navct__item"><a href="">Hướng dẫn</a></li>
+                                <li class="navct__item"><a href="">Nạp tiền</a></li>
+                                <li class="navct__item"><a href="">Câu hỏi thường gặp</a></li>
+                            </ul>
+                            <div class="social">
+                                <div class="navct-tt">
+                                    <h4 class="hd">Social</h4>
+                                </div>
+                                <div class="social-link">
+                                    <asp:Literal ID="ltrSocial" runat="server"></asp:Literal>
+                                    <%--<a href="#" class="btn-media"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="btn-media"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="btn-media"><i class="fab fa-youtube"></i></a>
+                                    <a href="#" class="btn-media"><i class="fab fa-skype"></i></a>--%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="facebook-frame">
+                        <div class="img">
+                            <img src="/App_Themes/TruongThanh/images/facebook-api.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ft-sys">
+                <div class="all center-txt">
+                    &copy; Bản quyền thuộc về Nhất Nhất. Thiết kế website bởi
+                    <img src="https://mona-media.com/logo.png" style="width: 20px; vertical-align: sub;"
+                        alt="MonaMedia">
+                    <a href="https://mona-media.com/" title="Mona Media">
+                        <strong>Mona Media</strong>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <a href="javascript:;" class="scroll-top-link" id="scroll-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+        <script src="/App_Themes/TruongThanh/js/slick/slick.min.js"></script>
+        <script src="/App_Themes/NewUI/js/sweet/sweet-alert.js" type="text/javascript"></script>
+        <script src="/App_Themes/NewUI/js/select2/select2.min.js"></script>
+        <script src="/App_Themes/TruongThanh/js/master.js"></script>
+
+        <script>
+            jQuery(document).ready(function () {
+
+                var step_tab = $('.step__item.active').attr('step-nav');
+                $('.steps-content ' + step_tab).show().siblings().hide();
+                $('.step__item').on('click', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var navct = $(this).attr('step-nav');
+                    $('.steps-content ' + navct).fadeIn().siblings().hide();
+                })
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                LoadSelect();
+                setActiveMenu(window.location.pathname);
+                //$('#main-nav-area').sticky({ zIndex: 999 });
+            });
+            function LoadSelect() {
+                $(".select2").select2({});
+                setActive();
+            }
+            function setActive() {
+                $('body').addClass('child-page');
+            }
+            function setActiveMenu(path) {
+                if (path.toLowerCase().indexOf('/trang-chu') != -1) {
+                    $('.nav-ul li.trangchu').addClass("current-menu-item");                    
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/bang-gia') != -1) {
+                    $('.nav-ul li.baogia').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/dich-vu') != -1) {
+                    $('.nav-ul li.dichvu').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/chinh-sach') != -1) {
+                    $('.nav-ul li.chinhsach').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/gioi-thieu') != -1) {
+                    $('.nav-ul li.gioithieu').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/huong-dan') != -1) {
+                    $('.nav-ul li.huongdan').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/tin-tuc') != -1) {
+                    $('.nav-ul li.tintuc').addClass("current-menu-item");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/tuyen-dung') != -1) {
+                    $('.nav-ul li.tuyendung').addClass("current-menu-item");
+                }
+            }
+            function OnClientFileSelected(sender, args) {
+                if ($telerik.isIE) return;
+                else {
+                    truncateName(args);
+                    //var file = args.get_fileInputField().files.item(args.get_rowIndex());
+                    var file = args.get_fileInputField().files.item(0);
+                    showThumbnail(file, args);
+                }
+            }
+
+
+            function truncateName(args) {
+                var $span = $(".ruUploadProgress", args.get_row());
+                var text = $span.text();
+                if (text.length > 23) {
+                    var newString = text.substring(0, 23) + '...';
+                    $span.text(newString);
+                }
+            }
+
+            function showThumbnail(file, args) {
+
+                var image = document.createElement("img");
+
+                image.file = file;
+                image.className = "ab img-responsive";
+
+                var $row = $(args.get_row());
+                $row.parent().className = "row ruInputs list-unstyled";
+                $row.append(image);
+
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                }(image));
+                var ret = reader.readAsDataURL(file);
+                var canvas = document.createElement("canvas");
+
+                ctx = canvas.getContext("2d");
+                image.onload = function () {
+                    ctx.drawImage(image, 100, 100);
+                };
+
+            }
+            $('ul#pri-menu > li > a').click(function (e) {
+                e.preventDefault();
+                var target = $(this).data('href');
+                if (target !== undefined) {
+                    $("body,html").animate({ scrollTop: $(target).offset().top }, 500);
+                } else {
+                    location.href = $(this).attr('href');
+                }
+            });
+            function updatestatusnoti(id, username, orderid) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/UpdateNotification",
+                    data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            window.location.href = "/chi-tiet-don-hang/" + orderid;
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+            function isEmpty(str) {
+                return !str.replace(/^\s+/g, '').length; // boolean (`true` if field is empty)
+            }
+            function closewebinfo() {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/closewebinfo",
+                    //data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            $(".webinfo").remove();
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+        </script>
+        <style>
+            .webinfo {
+                background: #685143;
+                color: #fff;
+                padding: 20px 0;
+                float: left;
+                width: 100%;
+                clear: both;
+                display: block;
+            }
+
+                .webinfo .textcontent {
+                    float: left;
+                    width: 100%;
+                    position: relative;
+                }
+
+            .icon-close-info {
+                position: absolute;
+                right: 0;
+                top: 0px;
+                width: 25px;
+                height: 25px;
+                color: #fff;
+                font-size: 16px;
+            }
+            .icon-close-info:hover {                
+                color: #ffcd38;
+                font-size: 16px;
+            }
+            .all-info {
+                width: 100%;
+            }
+
+            .main-info {
+                float: left;
+                width: 100%;
+                padding: 0 15px;
+            }
+        </style>
+    </form>
+</body>
+</html>

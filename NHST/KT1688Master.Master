@@ -1,0 +1,473 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="KT1688Master.master.cs" Inherits="NHST.KT1688Master" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <title>KT1688</title>
+    <link rel="stylesheet" href="/App_Themes/kt1688/js/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="/App_Themes/kt1688/css/style.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/kt1688/css/style-p.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/kt1688/css/responsive.css" media="all">
+    <link href="/App_Themes/NewUI/js/select2/select2.css" rel="stylesheet" />
+    <link href="/App_Themes/NewUI/js/sweet/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <script src="/App_Themes/kt1688/js/jquery-1.9.1.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <asp:Literal ID="ltr_infor" runat="server"></asp:Literal>
+        <header id="header" style="clear:both;">
+            <div class="hd-top">
+                <div class="all">
+                    <div class="hdt-wrap">
+                        <asp:Literal ID="ltrTopLeft" runat="server"></asp:Literal>                        
+                        <div class="hdt__right">
+                            <asp:Literal ID="ltrLogin" runat="server"></asp:Literal>                            
+                            <!-- <div class="acc-info">
+              Tên tài khoản
+              <div class="status">
+                <div class="status-wrap">
+    
+                  <div class="status__header">
+                    <h4>VIP 1</h4>
+                  </div>
+    
+                  <div class="status__body">
+                    <div class="level">
+                      <div class="level__info">
+                        <p>Level</p>
+                        <p class="rank">Vip 1</p>
+                      </div>
+          
+                      <div class="level__process">
+                        <span style="width: 50%"></span>
+                      </div>
+                    </div>
+                    <div class="balance">
+                      <p>
+                        Số dư:
+                      </p>
+                      <div class="balance__number">
+                        <p class="vnd">25.500đ</p>
+                        <p class="cny">2450Y</p>
+                      </div>
+                    </div>
+                    <div class="links">
+                      <a href="">
+                        Thông tin tài khoản
+                        <i class="fa fa-caret-right"></i>
+                      </a>
+                    </div>
+                    <div class="links">
+                      <a href="">
+                        Đơn hàng của bạn
+                        <i class="fa fa-caret-right"></i>
+                      </a>
+                    </div>
+                    <div class="links">
+                      <a href="">
+                        Lịch sử giao dịch
+                        <i class="fa fa-caret-right"></i>
+                      </a>
+                    </div>
+                  </div>
+    
+                  <div class="status__footer">
+                    <a href="" class="ft-btn">ĐĂNG XUẤT</a>
+                  </div>
+    
+                </div>
+              </div>
+            </div>
+            /
+            <div class="cart">Giỏ hàng</div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hd-main">
+                <div class="all">
+                    <div class="hdm-wrap">
+                        <div class="hdm__top">
+                            <div class="logo">
+                                <div class="logo-sub">
+                                    <div class="img"><a href="/">
+                                        <img src="/App_Themes/KT1688/images/header-logo.png" alt=""></a></div>
+                                </div>
+                                <div class="logo-main">
+                                    <div class="img"><a href="/">
+                                        <img src="/App_Themes/KT1688/images/header-logo-main.png" alt=""></a></div>
+                                </div>
+                            </div>
+                            <div class="search-item">
+                                <div class="search-form">
+                                    <div class="select-form">
+                                        <select class="f-control" id="brand-source">
+                                            <option value="taobao" data-image="/App_Themes/KT1688/images/taobao-logo.png"></option>
+                                            <option value="tmall" data-image="/App_Themes/KT1688/images/tmall-logo.png"></option>
+                                            <option value="1688" data-image="/App_Themes/KT1688/images/1688-logo.png"></option>
+                                        </select>
+                                        <span class="icon"><i class="fas fa-caret-down"></i></span>
+                                    </div>
+                                    <div class="input-form">
+                                        <input id="txtsearch" type="text" class="f-control" placeholder="Nhập link hoặc từ khóa sản phẩm mong muốn ...">
+                                        <a href="javascript:;" onclick="searchPro()" class="mn-btn submit"><i class="fas fa-search"></i></a>
+                                        <asp:Button ID="btnsearchpro" runat="server" CssClass="mn-btn" Text="Tìm kiếm" OnClick="btnsearchpro_Click"
+                                            OnClientClick="document.forms[0].target = '_blank';" Style="display: none" />
+                                    </div>
+                                </div>
+                                <div class="text-note">
+                                    <p>Nếu bạn chưa tìm thấy sản phẩm mong muốn, vui lòng <a href="" class="color1">CLick vào đây</a> để gửi yêu cầu từ khóa</p>
+                                </div>
+                            </div>
+                            <div class="order-button">
+                                <a href="https://chrome.google.com/webstore/detail/công-cụ-đặt-hàng-của-kt16/jgjjacbneljoehikpcnoagjillkfblib" 
+                                    target="_blank" class="mn-btn btn-buy"><i class="fab fa-chrome"></i>Chrome</a>
+                                <a href="https://chrome.google.com/webstore/detail/công-cụ-đặt-hàng-của-kt16/jgjjacbneljoehikpcnoagjillkfblib"
+                                    target="_blank" class="mn-btn btn-deposit"><i class="fab fa-chrome"></i>Cốc Cốc</a>
+                            </div>
+                        </div>
+                        <div class="hdm__right clear">
+                            <div class="navbar-toggle">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </div>
+                            <div class="nav-wrap">
+                                <div class="nav-overlay"></div>
+                                <ul class="nav-ul">
+                                    <li class="nav-item trangchu firstnav">
+                                        <span class="triangle"></span>
+                                        <a href="/trang-chu">Trang chủ</a>
+                                    </li>
+                                    <li class="nav-item gioithieu">
+                                        <a href="/chuyen-muc/gioi-thieu">Giới thiệu</a>
+                                    </li>
+                                    <li class="nav-item baogia">
+                                        <a class="nav-item__name" href="/chuyen-muc/bao-gia">Bảng giá</a>
+                                    </li>
+                                    <li class="nav-item dichvu">
+                                        <a href="/chuyen-muc/dich-vu">Dịch vụ</a>
+                                    </li>
+                                    <li class="nav-item chinhsach">
+                                        <a class="nav-item__name " href="/chuyen-muc/chinh-sach">Chính sách</a>
+                                    </li>
+                                    <li class="nav-item huongdan">
+                                        <a class="nav-item__name " href="/chuyen-muc/huong-dan">Hướng dẫn</a>
+                                    </li>
+                                    <li class="lastnav">
+                                        <span class="triangle"></span>
+                                        <a href="https://chrome.google.com/webstore/detail/công-cụ-đặt-hàng-của-kt16/jgjjacbneljoehikpcnoagjillkfblib" target="_blank"><i class="fas fa-puzzle-piece"></i> Công cụ đặt hàng</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer id="footer">
+            <div class="ft-infos">
+                <div class="all">
+                    <div class="info__child logo">
+                        <div class="img">
+                            <a href="javascript:;">
+                                <img src="/App_Themes/kt1688/images/footer-logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="info__child">
+                        <div class="title">
+                            <p class="hd">Công ty</p>
+                        </div>
+                        <ul class="list-nav">
+                            <li><a href="javascript:;">Về chúng tôi</a></li>
+                            <li><a href="javascript:;">Điều khoản</a></li>
+                        </ul>
+                    </div>
+                    <div class="info__child">
+                        <div class="title">
+
+                            <p class="hd">Ngành hàng</p>
+                        </div>
+                        <ul class="list-nav">
+                            <li><a href="javascript:;">Thời trang nữ</a></li>
+                            <li><a href="javascript:;">Thời trang nam</a></li>
+                            <li><a href="javascript:;">Đồ dùng trẻ em</a></li>
+                            <li><a href="javascript:;">Đồ phượt</a></li>
+                            <li><a href="javascript:;">Nội thất</a></li>
+                        </ul>
+                    </div>
+                    <div class="info__child">
+                        <div class="title">
+                            <p class="hd">Hỗ trợ</p>
+                        </div>
+                        <ul class="list-nav">
+                            <li><a href="javascript:;">Hướng dẫn</a></li>
+                            <li><a href="javascript:;">Nạp tiền</a></li>
+                            <li><a href="javascript:;">Câu hỏi thường gặp</a></li>
+                        </ul>
+                    </div>
+                    <div class="info__child">
+                        <div class="title">
+                            <p class="hd">Mạng xã hội</p>
+                        </div>
+                        <div class="social-icon">
+                            <asp:Literal ID="ltrSC" runat="server"></asp:Literal>
+                            <%--<a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                            <a href="javascript:;"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="javascript:;"><i class="fab fa-google-plus-g"></i></a>
+                            <a href="javascript:;"><i class="fab fa-facebook-f"></i></a>
+                            <a href="javascript:;"><i class="fab fa-twitter"></i></a>--%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ft-sys">
+                <div class="all center-txt">
+                    &copy; Bản quyền thuộc về KT1688. Thiết kế website bởi
+        <img src="https://mona-media.com/logo.png" style="width: 20px; vertical-align: sub;"
+            alt="MonaMedia">
+                    <a href="https://mona-media.com/" title="Mona Media">
+                        <strong>Mona Media</strong>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+        <asp:HiddenField ID="hdfTextSearch" runat="server" />
+        <asp:HiddenField ID="hdfWebSearch" runat="server" />
+        <a href="javascript:;" class="scroll-top-link" id="scroll-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+        <script src="/App_Themes/kt1688/js/slick/slick.min.js"></script>
+        <script src="/App_Themes/NewUI/js/sweet/sweet-alert.js" type="text/javascript"></script>
+        <script src="/App_Themes/NewUI/js/select2/select2.min.js"></script>
+        <script src="/App_Themes/KT1688/js/MSDropDown/jquery.dd.min.js"></script>
+        <link rel="stylesheet" href="/App_Themes/KT1688/js/MSDropDown/dd.css">
+        <script src="/App_Themes/kt1688/js/master.js"></script>
+        <script async="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_roqaeKE7ULRUNw5wG0i8TqvWRsSJ2JY&amp;callback=loadGoogleMap"></script>
+
+        <script>
+            function searchPro()
+            {
+                var web = $("#brand-source").val();
+                var textsearch = $("#txtsearch").val();
+                if (!isEmpty(textsearch))
+                {
+                    $("#<%=hdfTextSearch.ClientID%>").val(textsearch);
+                    $("#<%=hdfWebSearch.ClientID%>").val(web);
+                    $("#<%=btnsearchpro.ClientID%>").click();
+                }
+                else
+                {
+                    alert('Vui lòng nhập tự khóa');
+                }
+            }
+            jQuery(document).ready(function () {
+                var step_tab = $('.steps-order .step__item.active').attr('step-nav');
+                $(`.steps-order ${step_tab}`).show().siblings().hide();
+                $('.steps-order .step__item').on('click', function (e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $(this).addClass('active').siblings().removeClass('active');
+                    var navct = $(this).attr('step-nav');
+                    $(`.steps-order ${navct}`).fadeIn().siblings().hide();
+                })
+                ////////
+                $("#brand-source").msDropdown();
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                LoadSelect();
+                setActiveMenu(window.location.pathname);
+                //$('#main-nav-area').sticky({ zIndex: 999 });
+            });
+            function LoadSelect() {
+                $(".select2").select2({});
+                setActive();
+            }
+            function setActive() {
+                $('body').addClass('child-page');
+            }
+            function setActiveMenu(path) {
+                if (path.toLowerCase().indexOf('/trang-chu') != -1) {
+                    $('.nav-ul li.trangchu').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/bao-gia') != -1) {
+                    $('.nav-ul li.baogia').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/dich-vu') != -1) {
+                    $('.nav-ul li.dichvu').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/chinh-sach') != -1) {
+                    $('.nav-ul li.chinhsach').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/gioi-thieu') != -1) {
+                    $('.nav-ul li.gioithieu').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/huong-dan') != -1) {
+                    $('.nav-ul li.huongdan').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/tin-tuc') != -1) {
+                    $('.nav-ul li.tintuc').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/chuyen-muc/tuyen-dung') != -1) {
+                    $('.nav-ul li.tuyendung').addClass("current");
+                }
+            }
+            function OnClientFileSelected(sender, args) {
+                if ($telerik.isIE) return;
+                else {
+                    truncateName(args);
+                    //var file = args.get_fileInputField().files.item(args.get_rowIndex());
+                    var file = args.get_fileInputField().files.item(0);
+                    showThumbnail(file, args);
+                }
+            }
+
+
+            function truncateName(args) {
+                var $span = $(".ruUploadProgress", args.get_row());
+                var text = $span.text();
+                if (text.length > 23) {
+                    var newString = text.substring(0, 23) + '...';
+                    $span.text(newString);
+                }
+            }
+
+            function showThumbnail(file, args) {
+
+                var image = document.createElement("img");
+
+                image.file = file;
+                image.className = "ab img-responsive";
+
+                var $row = $(args.get_row());
+                $row.parent().className = "row ruInputs list-unstyled";
+                $row.append(image);
+
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                }(image));
+                var ret = reader.readAsDataURL(file);
+                var canvas = document.createElement("canvas");
+
+                ctx = canvas.getContext("2d");
+                image.onload = function () {
+                    ctx.drawImage(image, 100, 100);
+                };
+
+            }
+            $('ul#pri-menu > li > a').click(function (e) {
+                e.preventDefault();
+                var target = $(this).data('href');
+                if (target !== undefined) {
+                    $("body,html").animate({ scrollTop: $(target).offset().top }, 500);
+                } else {
+                    location.href = $(this).attr('href');
+                }
+            });
+            function updatestatusnoti(id, username, orderid) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/UpdateNotification",
+                    data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            window.location.href = "/chi-tiet-don-hang/" + orderid;
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+            function isEmpty(str) {
+                return !str.replace(/^\s+/g, '').length; // boolean (`true` if field is empty)
+            }
+            function closewebinfo() {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/closewebinfo",
+                    //data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            $(".webinfo").remove();
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+        </script>
+    </form>
+    <style>
+        .webinfo {
+            background: #f7b200;
+            color: #fff;
+            padding: 20px 0;
+            float: left;
+            width: 100%;
+            clear: both;
+            display: block;
+        }
+
+            .webinfo .textcontent {
+                float: left;
+                width: 100%;
+                position: relative;
+            }
+
+        .icon-close-info {
+            position: absolute;
+            right: 0;
+            top: -20px;
+            width: 25px;
+            height: 25px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .all-info {
+            width: 100%;
+        }
+
+        .main-info {
+            float: left;
+            width: 100%;
+            padding: 0 15px;
+        }
+    </style>
+</body>
+</html>

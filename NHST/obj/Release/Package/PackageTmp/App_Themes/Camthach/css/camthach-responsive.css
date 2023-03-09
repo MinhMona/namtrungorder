@@ -1,0 +1,50 @@
+.banner .banner__bot {
+  width: 100%;
+}
+
+.search-item .btn {
+  margin-top: 5px
+}
+
+
+@media screen and (max-width: 730px) {
+  .search-item .form-control {
+    width: 100%;
+  }
+
+  .banner .banner__main .search-item .checkbox {
+    text-align: unset;
+  }
+
+  .banner .banner__main .search-item .checkbox label {
+    margin: 5px;
+  }
+
+  .banner .banner__main .search-item .checkbox>label .text {
+    padding: 10px;
+  }
+
+  .search-item .form-control {
+    width: 100%;
+  }
+
+  .search-item .search-item-left .bottom-content .form-search a {
+    transform: translateX(-100%);
+  }
+  .search-item-right,
+  .search-item-left {
+    width: 100% !important;
+    float: none !important;
+  }
+
+}
+
+@media screen and (max-width: 450px) {
+  #footer .ft-infos .footer-col-5 {
+    display: block;
+  }
+
+  #footer .ft-infos .footer-col-5 .col__child {
+    padding-bottom: 10px;
+  }
+}

@@ -1,0 +1,69 @@
+@mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+  @each $property in $properties {
+    #{$property}: $min-value;
+  }
+  
+  @media screen and (min-width: $min-vw) {  
+    
+    @each $property in $properties {
+      $value-prop: null;
+      @for $i from 1 through length($min-value) {
+        @if (strip-unit(nth($min-value, $i)) == 0 and strip-unit(nth($max-value, $i)) == 0) {
+          $value-prop: append($value-prop, 0);
+        }
+
+        @else if (unit(nth($min-value, $i)) == 'rem') {
+          $value: calc(#{nth($min-value, $i)} + #{strip-unit(nth($max-value, $i) - nth($min-value, $i)) * 10 } * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+          $value-prop: append($value-prop, $value);
+        }
+        @else {
+          $value: calc(#{nth($min-value, $i)} + #{strip-unit(nth($max-value, $i) - nth($min-value, $i))} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+          $value-prop: append($value-prop, $value);
+        }   
+      }
+      #{$property}: $value-prop;
+    }  
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value;
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@function ends-with($string, $find) {
+  @if (str-slice($string, (str-length($string) - str-length($find) + 1)) == $find) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+// Media Queries
+// 1. Name and define our breakpoints. Name the map something sensical
+// 2. Write a comma separated list of key: value, pairs that we will use later
+$breakpoints: (
+   small: 34em,
+	large: 60em,
+);
+
+// if selector is wider than the screensize we are calling
+@mixin bp($screen-size) {
+	// and if our map that we named $breakpoints includes values (we called them $screen-size)
+	@if map-has-key($breakpoints, $screen-size) {
+		// then write out a nested Media Query that will target that value as our min-width
+		@media (min-width: map-get($breakpoints, $screen-size)) {
+	  		// write CSS within this mixin that would apply to only this breakpoint or above
+				@content;
+		}
+	// if the screen-size we are requesting doesn't exist, then tell me when it is compiled
+	} @else {
+        // Debugging
+        @warn "'#{$screen-size}' has not been declared as a breakpoint.";
+    }
+}

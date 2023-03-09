@@ -1,0 +1,478 @@
+/* ==========================================================================
+layout 1200px
+========================================================================== */
+@media screen and (max-width: 1200px) {
+    .container{
+        width: 98%;
+        margin: 0 auto;
+    }
+    .infomation{
+        font-size: 14px;
+    }
+    .nav-ul li {
+        padding: 0 9px;
+    }
+    .benefit-left .benefit-auto {
+        width: calc(100%);
+        margin-left: 0;
+    }
+    .benefit-right .benefit-auto {
+        width: calc(100%);
+        margin-right: 0;
+    }
+    /* ==========================================================================
+    dichvu.html
+    ========================================================================== */
+    .services-page {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .address p{
+        text-align: center;
+        line-height: 24px;
+    }
+    .services-content {
+        width: calc((100%/12)*8);
+        float: left;
+    }
+    .sv-list-main {
+        width: calc((100%/2) - 10px);
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .intro-align img{
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+/* ==========================================================================
+layout 1024px
+========================================================================== */
+@media screen and (max-width: 1024px) {
+    .setting-detail {
+        width: 69%;
+    }
+    .nav-wrap ul li a {
+        font-size: 16px;
+    }
+    .banner-width {
+        width: 90%;
+        margin-left: 0;
+    }
+    .banner-info{
+        width: 100%;
+    }
+    .banner {
+        padding: 20px 0;
+    }
+    /* ==========================================================================
+    congcudathang.html
+    ========================================================================== */
+    .tool-detail img{
+        max-width: 90%;
+        margin: 15px;
+    }
+    /* ==========================================================================
+    dichvu.html
+    ========================================================================== */
+}
+/* ==========================================================================
+layout 900px
+========================================================================== */
+@media screen and (max-width: 900px) {
+    .container{
+        width: 95%;
+        margin: 0 auto;
+    }
+	 body.menuin {
+        overflow: hidden
+    }
+    .navbar-toggle {
+        display: block
+    }
+    .navbar-toggle.open+.nav-wrap {
+        transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        -o-transform: none
+    }
+    #header .navbar-toggle {
+        margin-top: 5px
+    }
+    #header .navbar-toggle.open {
+        position: fixed;
+        top: 5px;
+        left: 80%;
+    }
+    #header.sticky .navbar-toggle .icon-bar {
+        background-color: #fff
+    }
+    .nav-wrap {
+        -webkit-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        -webkit-transform: translate(100%, 0);
+        transform: translate(100%, 0)
+    }
+    .nav-wrap .nav-overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%
+    }
+    .nav-wrap .nav-ul {
+        float: right;
+        width: 270px;
+        height: 100%;
+        padding-top: 40px;
+        background-color: #424b4e;
+        overflow: auto;
+        position: relative
+    }
+    .nav-wrap .nav-ul>li {
+        float: none;
+        width: 100%;
+        margin: 0;
+        padding: 10px 20px;
+    }
+    .nav-wrap .nav-ul .sub-menu-wrap {
+        position: static;
+        width: 100%;
+        transform: none;
+        -webkit-transform: none;
+        padding: 0px;
+        float: left;
+        width: 100%
+    }
+    .nav-wrap .nav-ul .sub-menu-wrap .megamenu {
+        background-size: 50% auto;
+        background-position: right bottom
+    }
+    .nav-wrap .nav-ul .sub-menu-wrap .title-mega-menu {
+        display: none
+    }
+    .nav-wrap .nav-ul .sub-menu-wrap .sub-menu {
+        width: 100%;
+        padding: 0
+    }
+    .infomation{
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+    .top-menu{
+        height: 70px;
+    }
+    .top-menu-right {
+        width: 100%;
+        float: none;
+        margin-top: 3px;
+    }
+    .top-menu-right .login {
+        width: 50%;
+        float: left;
+        text-align: right;
+    }
+    .top-menu-right .store {
+        width: 50%;
+        float: left;
+        text-align: left;
+        padding-left: 40px;
+    }
+    .link-product-right {
+        font-size: 17px;
+    }
+    .submit a{
+        font-size: 13px;
+    }
+    .list-process li {
+        width: calc((100%/12)*6);
+        margin-bottom: 22px;
+    }
+    .list-process p{
+        margin-top: 10px;
+    }
+    .commit-right {
+        width: 50%;
+        float: right;
+        padding-bottom: 40px;
+    }
+    .commit-left {
+        width: 50%;
+        float: left;
+        position: absolute;
+        left: -42px;
+        bottom: 1px;
+    }
+    .benefit-box{
+        background-position: center center;
+    }
+    .benefit-left .benefit-list {
+        margin-right: -70px;
+    }
+    .benefit-right .benefit-list {
+        margin-left: -70px;
+    }
+    .top-footer .footer-item {
+        width: calc(50%);
+        float: left;
+        padding: 15px;
+    }
+    .banner-left {
+        width: 100%;
+        float: none;
+    }
+    .banner-right {
+        width: 100%;
+        float: none;
+    }
+    .banner-width {
+        width: 76%;
+        margin: 0 auto;
+    }
+    /* ==========================================================================
+    congcudathang.html
+    ========================================================================== */
+    .order-tool-left{
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+    .order-tool-right{
+        width: 100%;
+        float: none;
+        padding-bottom: 30px;
+    }
+    .order-tool-left img{
+        max-width: 566px;
+        margin: 0 auto;
+    }
+    /* ==========================================================================
+    dichvu.html
+    ========================================================================== */
+}
+/* ==========================================================================
+layout 750px
+========================================================================== */
+@media screen and (max-width: 750px){
+    .logo {
+        float: none;
+        width: 100%;
+    }
+    .logo img{
+        margin: 0 auto;
+    }
+    .app {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    .main-title {
+        font-size: 26.19px;
+    }
+    .main-text{
+        font-size: 17px;
+    }
+    .list-intro li{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .link-search {
+        width: 100%;
+        float: none;
+    }
+    .link-search input {
+        width: 100%;
+    }
+    .link-search .submit {
+        right: 0;
+    }
+    .link-product-right {
+        float: none;
+        text-align: center;
+        width: 100%;
+        margin-top: 0;
+        padding-bottom: 10px;
+    }
+    .search-form {
+        width: 100%;
+        float: none;
+        text-align: center;
+    }
+    .setting {
+        width: 100%;
+        float: none;
+        text-align: center;
+        margin-top: 30px;
+    }
+    .commit-left{
+        display: none;
+    }
+    .commit-right {
+        width: 100%;
+        float: none;
+        padding-bottom: 40px;
+    }
+    .img-hidden{
+        display: block;
+    }
+    .sv-list-detail {
+        width: calc((90%) - 30px);
+        float: none;
+        margin: 10px auto;
+    }
+    .benefit-box{
+        background: none;
+    }
+    .benefit-left{
+        width: 100%;
+        float: none;
+    }
+    .benefit-right {
+        width: 100%;
+        float: none;
+    }
+    .benefit-left .benefit-list {
+        margin-right: 0;
+        margin-top: 20px;
+    }
+    .benefit-left .benefit-img {
+        float: left;
+    }
+    .benefit-left .benefit-info {
+        padding: 0 0 0 50px;
+        text-align: left;
+    }
+    .benefit-right .benefit-list {
+        margin-left: 0;
+    }
+    .benefit-img-hiden{
+        display: block;
+    }
+    .top-footer .footer-item {
+        width: calc(100%);
+        float: none;
+        padding: 15px;
+    }
+    /* ==========================================================================
+    dichvu.html
+    ========================================================================== */
+    .services-content,.sidebar{
+        width: 100%;
+        float: none;
+    }
+    .cmt {
+        margin-bottom: 30px;
+    }
+}
+/* ==========================================================================
+layout 480px
+========================================================================== */
+@media screen and (max-width: 480px){
+    .infomation{
+        font-size: 9px;
+        text-align: center;
+    }
+    .login p {
+        font-size: 12px;
+    }
+    .top-menu-right .store {
+        padding-left: 0;
+        font-size: 13px;
+        text-align: center;
+        padding-right: 0;
+    }
+    .top-menu-right .login{
+        margin-top: 4px;
+    }
+    .app {
+        text-align: center;
+    }
+    .new-product a{
+        margin-right: 0;
+    }
+    .setting-detail {
+        width: 100%;
+    }
+    .banner-title {
+        font-size: 18px;
+    }
+    .banner-title span {
+        font-size: 32px;
+    }
+    .banner-contact {
+        width: 100%;
+        font-size: 10px;
+    }
+    .search-product {
+        padding-top: 35px;
+    }
+    .search-form-detail ul li {
+        padding: 14px 11px;
+    }
+    .search-form{
+        margin-bottom: 60px;
+    }
+    .new-product {
+        margin-top: 23px;
+    }
+    .process {
+        padding-top: 30px;
+        padding-bottom: 10px;
+        text-align: center;
+        background: #ececf1;
+    }
+    .commit-list h3 {
+        margin-bottom: 5px;
+    }
+    .sv-text h3 {
+        margin: 3px 0;
+    }
+    .benefit-info h3{
+        margin-bottom: 5px;
+    }
+    .footer-item h3{
+        margin-bottom: 0;
+    }
+    .commit-list {
+        padding: 10px;
+    }
+    .benefit-info h3 {
+        margin-bottom: 15px;
+    }
+    .order-tool-left img {
+        min-height: auto !important;
+    }
+    /* ==========================================================================
+    congcudathang.html
+    ========================================================================== */
+    .order-tool-right{
+        padding-left: 10px;
+    }
+    .tool-setting {
+        text-align: center;
+    }
+    .tool-setting a{
+        padding-right: 0;
+    }
+    /* ==========================================================================
+    dichvu.html
+    ========================================================================== */
+    .sv-list-detail {
+        width: 93%;
+    }
+    .sv-text {
+        padding: 15px 0 30px 0;
+    }
+    .services-content p{
+        line-height: 22px;
+    }
+}

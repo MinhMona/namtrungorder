@@ -1,0 +1,357 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="camthachMasterLogined.master.cs" Inherits="NHST.camthachMasterLogined" %>
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:site_name" content="">
+    <meta property="og:description" content="">
+
+    <title>Cẩm thạch</title>
+
+    <link rel="stylesheet" href="/App_Themes/Camthach/css/style.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/Camthach/css/style-P.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/Camthach/css/responsive.css" media="all">
+	<link rel="stylesheet" href="/App_Themes/Camthach/css/camthach-responsive.css" media="all">
+    <link href="/App_Themes/NewUI/js/select2/select2.css" rel="stylesheet" />
+    <link href="/App_Themes/NewUI/js/sweet/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <script src="/App_Themes/Camthach/js/jquery-1.9.1.min.js"></script>
+    <script src="/scripts/jquery.signalR-2.2.3.min.js"></script>
+    <script src="/signalr/hubs"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <header id="header">
+            <div class="hd-top">
+                <div class="hd-top__left">
+                    <asp:Literal ID="ltrTopLeft" runat="server"></asp:Literal>
+
+                </div>
+                <div class="hd-top__right">
+                    <div class="link">
+                        <asp:Literal ID="ltrLogin" runat="server"></asp:Literal>
+                    </div>
+                    <div class="search">
+                        <input type="search" class="form-control">
+                        <span><i class="fas fa-search"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hd-main">
+                <div class="all">
+
+                    <div class="logo">
+                        <a href="/trang-chu">
+                            <img src="/App_Themes/Camthach/images/logo.png" alt="logo brand">
+                        </a>
+                    </div>
+
+                    <div class="navbar-toggle">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
+                    <div class="nav-wrap" id="hd-nav">
+                        <div class="nav-overlay"></div>
+                        <ul class="nav-ul clear">
+                            <li class="nav-item giohang"><a href="/gio-hang">Giỏ hàng</a></li>
+                            <li class="nav-item donhang"><a href="/danh-sach-don-hang">Đơn hàng</a></li>
+                            <li class="nav-item taichinh has-dropdown">
+                                <a href="/lich-su-giao-dich">Tài chính</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/lich-su-giao-dich">Lịch sử giao dịch</a></li>
+                                    <li><a href="/nap-tien">Nạp tiền</a></li>
+                                    <li><a href="/rut-tien">Rút tiền</a></li>
+                                    <li><a href="/bang-tich-luy-diem">Điểm tích lũy</a></li>
+                                </ul>
+                            </li>                            
+                            <li class="nav-right">
+                                <ul class="nav-ul clear">
+                                    <li class="nav-item khieunai"><a href="/khieu-nai">Khiếu nại</a></li>
+                                    <li class="nav-item quanlytaikhoan"><a href="/thong-tin-nguoi-dung">Quản lý tài khoản</a></li>
+                                    <li><a href="/dang-xuat">Đăng xuất</a></li>                                   
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer id="footer">
+            <div class="ft-infos">
+                <div class="all">
+                    <div class="footer-col-5">
+
+                        <section class="col__child">
+                            <h4 class="fz-18 title"><asp:Literal ID="ltrWebname" runat="server"></asp:Literal></h4>
+                            <ul class="ft-contact">
+                                <li>
+                                    <div class="contact__item">
+                                        <p class="fz-14 sub">Hotline:</p>
+                                        <p class="fz-14 main">
+                                            <asp:Literal ID="ltrHotline2" runat="server"></asp:Literal>
+
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="contact__item">
+                                        <p class="fz-14 sub">Email:</p>
+                                        <p class="fz-14 main">
+                                            <asp:Literal ID="ltrEmail2" runat="server"></asp:Literal>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="contact__item">
+                                        <p class="fz-14 sub">Địa chỉ:</p>
+                                        <p class="fz-14 main-2">
+                                            <asp:Literal ID="ltrAddress" runat="server"></asp:Literal>
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="col__child">
+                            <h4 class="fz-18 title">Công ty</h4>
+                            <ul class="ft-nav">
+                                <li>
+                                    <div class="nav__item"><a href="/chuyen-muc/gioi-thieu/ve-chung-toi">Về chúng tôi</a></div>
+                                </li>
+                                <li>
+                                    <div class="nav__item"><a href="/chuyen-muc/gioi-thieu/dieu-khoan-su-dung">Điều khoản sử dụng</a></div>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="col__child">
+                            <h4 class="fz-18 title">Ngành hàng</h4>
+                            <ul class="ft-nav">
+                                <li>
+                                    <div class="nav__item"><a href="#">Thời trang nữ</a></div>
+                                </li>
+                                <li>
+                                    <div class="nav__item"><a href="#">Thời trang nam</a></div>
+                                </li>
+                                <li>
+                                    <div class="nav__item"><a href="#">Đồ dùng cho bé</a></div>
+                                </li>
+                                <li>
+                                    <div class="nav__item"><a href="#">Đồ phượt</a></div>
+                                </li>
+                                <li>
+                                    <div class="nav__item"><a href="#">Nội thất</a></div>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="col__child">
+                            <h4 class="fz-18 title">Hỗ trợ</h4>
+                            <ul class="ft-nav">
+                                <li>
+                                    <div class="nav__item"><a href="/chuyen-muc/ho-tro/huong-dan">Hướng dẫn</a></div>
+                                </li>
+                                <li>
+                                    <div class="nav__item"><a href="/chuyen-muc/ho-tro/nap-tien">Nạp tiền</a></div>
+                                </li>
+                                <li>
+                                    <div class="nav__item"><a href="/chuyen-muc/ho-tro/cau-hoi-thuong-gap">Câu hỏi thường gặp</a></div>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="col__child">
+                            <h4 class="fz-18 title">Mạng xã hội</h4>
+                            <div class="ft-social">
+                                <asp:Literal ID="ltrSocial" runat="server"></asp:Literal>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="ft-sys">
+                <div class="all center-txt">
+                    © <strong>camthachcompany</strong>
+                </div>
+                <div class="all center-txt" style="display: none">
+                    ©
+                    <a href="https://mona-media.com/dich-vu/thiet-ke-website-chuyen-nghiep/" target="_blank" title="Công ty thiế kế website chuyên nghiệp">
+                        <img src="http://mona-media.com/logo.png" style="width: 20px; vertical-align: sub;" alt="MonaMedia">
+                    </a>&nbsp;
+                    <strong>Mona Media</strong>
+                </div>
+            </div>
+        </footer>
+        <a href="javascript:;" class="scroll-top-link" id="scroll-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+        <script src="/App_Themes/Camthach/js/slick/slick.min.js"></script>
+        <script src="/App_Themes/Camthach/js/wow.min.js"></script>
+        <script src="/App_Themes/Camthach/js/detectmobilebrowser.js"></script>
+        <script src="/App_Themes/NewUI/js/sweet/sweet-alert.js" type="text/javascript"></script>
+        <script src="/App_Themes/NewUI/js/select2/select2.min.js"></script>
+        <script src="/App_Themes/Camthach/js/master.js"></script>
+        <script async="" type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_roqaeKE7ULRUNw5wG0i8TqvWRsSJ2JY&amp;callback=loadGoogleMap"></script>
+
+        <script>
+    jQuery(document).ready(function () {
+      /* //Check window screen
+      if (!jQuery.browser.mobile) {
+
+      }
+      */
+
+      var checkbox = '.banner .banner__main .search-item .checkbox > label'
+      $(checkbox).each(function (index, child) {
+        $(child).on('click', function (e) {
+          // var x = $(this).parent("label input[type=checkbox]");
+          // console.log(x);
+          e.stopPropagation();
+          $(this).siblings().children("input").removeAttr("checked");
+        })
+      })
+    });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                LoadSelect();
+                setActiveMenu(window.location.pathname);
+                //$('#main-nav-area').sticky({ zIndex: 999 });
+            });
+            function LoadSelect() {
+                $(".select2").select2({});
+                setActive();
+            }
+            function setActive() {
+                $('body').addClass('child-page');
+            }
+            function setActiveMenu(path) {
+                if (path.toLowerCase().indexOf('/danh-sach-don-hang') != -1) {
+                    $('ul.nav-ul > li.donhang').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/gio-hang') != -1) {
+                    $('ul.nav-ul > li.giohang').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/lich-su-giao-dich') != -1) {
+                    $('ul.nav-ul > li.taichinh').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/nap-tien') != -1) {
+                    $('ul.nav-ul > li.taichinh').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/rut-tien') != -1) {
+                    $('ul.nav-ul > li.taichinh').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/bang-tich-luy-diem') != -1) {
+                    $('ul.nav-ul > li.taichinh').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/khieu-nai') != -1) {
+                    $('ul.nav-ul > li.khieunai').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/thong-tin-nguoi-dung') != -1) {
+                    $('ul.nav-ul > li.quanlytaikhoan').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/ho-tro') != -1) {
+                    $('ul.nav-ul > li.hotro').addClass("current");
+                }
+                else if (path.toLowerCase().indexOf('/quan-ly-van-chuyen') != -1) {
+                    $('ul.nav-ul > li.kygui').addClass("current");
+                }
+            }
+            function OnClientFileSelected(sender, args) {
+                if ($telerik.isIE) return;
+                else {
+                    truncateName(args);
+                    //var file = args.get_fileInputField().files.item(args.get_rowIndex());
+                    var file = args.get_fileInputField().files.item(0);
+                    showThumbnail(file, args);
+                }
+            }
+
+
+            function truncateName(args) {
+                var $span = $(".ruUploadProgress", args.get_row());
+                var text = $span.text();
+                if (text.length > 23) {
+                    var newString = text.substring(0, 23) + '...';
+                    $span.text(newString);
+                }
+            }
+
+            function showThumbnail(file, args) {
+
+                var image = document.createElement("img");
+
+                image.file = file;
+                image.className = "ab img-responsive";
+
+                var $row = $(args.get_row());
+                $row.parent().className = "row ruInputs list-unstyled";
+                $row.append(image);
+
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                }(image));
+                var ret = reader.readAsDataURL(file);
+                var canvas = document.createElement("canvas");
+
+                ctx = canvas.getContext("2d");
+                image.onload = function () {
+                    ctx.drawImage(image, 100, 100);
+                };
+
+            }
+            $('ul#pri-menu > li > a').click(function (e) {
+                e.preventDefault();
+                var target = $(this).data('href');
+                if (target !== undefined) {
+                    $("body,html").animate({ scrollTop: $(target).offset().top }, 500);
+                } else {
+                    location.href = $(this).attr('href');
+                }
+            });
+            function updatestatusnoti(id, username, orderid) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/UpdateNotification",
+                    data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            window.location.href = "/chi-tiet-don-hang/" + orderid;
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+            
+        </script>
+        
+    </form>
+</body>
+</html>

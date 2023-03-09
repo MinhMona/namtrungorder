@@ -1,0 +1,322 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="dqgMasterLogined.master.cs" Inherits="NHST.dqgMasterLogined" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Vận chuyển đa quốc gia</title>
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/fcgjhboahpkilgglmfnikgpdmjjpbohg" />
+    <link rel="stylesheet" href="/App_Themes/vcdqg/css/slick.css">
+    <link rel="stylesheet" href="/App_Themes/vcdqg/css/style.css">
+    <link rel="stylesheet" href="/App_Themes/vcdqg/css/style-P.css">
+    <link rel="stylesheet" href="/App_Themes/vcdqg/fonts/poppins.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/App_Themes/NewUI/js/select2/select2.css" rel="stylesheet" />
+    <link href="/App_Themes/NewUI/js/sweet/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <script src="/App_Themes/vcdqg/js/jquery.min.js"></script>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <div id="page-wrapper">
+            <header id="site-header">
+                <div class="top-head s-font grey70 gray-bg">
+                    <div class="inner container flex-view center ">
+                        <ul class="user-menu">
+                            <asp:Literal ID="ltrLogin" runat="server"></asp:Literal>
+                        </ul>
+                        <ul class="its user-acts">
+                            <asp:Literal ID="ltrCart" runat="server"></asp:Literal>
+                            <li class="it">
+                                <a href="https://chrome.google.com/webstore/detail/c%C3%B4ng-c%E1%BB%A5-%C4%91%E1%BA%B7t-h%C3%A0ng-v%E1%BA%ADn-chuy/fcgjhboahpkilgglmfnikgpdmjjpbohg?authuser=2" target="_blank"><i class="fa fa-cog"></i> CÔNG CỤ</a>
+                            </li>
+                            <li class="it" style="font-size: 16px; font-weight: bold;">
+                                <a href="#"><i class="fa fa-mobile"></i> <asp:Label ID="lblPhone" runat="server"></asp:Label></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--container-->
+                </div>
+                <!--top-head-->
+
+                <div id="main-nav-area">
+                    <div class="container flex-view center">
+                        <aside id="head-logo" class="main-logo">
+                            <a class="block" href="/trang-chu">
+                                <img src="/App_Themes/vcdqg/images/main-logo.png" alt="" /></a>
+                        </aside>
+                        <nav id="main-nav">
+                            <ul id="pri-menu">
+                                <%--<li class="current-menu-item"><a href="/trang-chu">Trang chủ</a></li>--%>
+                                <li class="giohang"><a href="/gio-hang">Giỏ hàng</a></li>
+                                <li class="donhang"><a href="/danh-sach-don-hang">Đơn hàng</a></li>
+                                <li class="taichinh menu-item-has-children">
+                                    <a href="/lich-su-giao-dich">Tài chính</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="/lich-su-giao-dich">Lịch sử giao dịch</a></li>
+                                        <li><a href="/nap-tien">Nạp tiền</a></li>
+                                        <li><a href="/rut-tien">Rút tiền</a></li>
+                                        <li><a href="/bang-tich-luy-diem">Điểm tích lũy</a></li>
+                                    </ul>
+                                </li>
+                                <li class="khieunai"><a href="/khieu-nai">Khiếu nại</a></li>
+                                <li class="quanlytaikhoan"><a href="/thong-tin-nguoi-dung">Quản lý tài khoản</a></li>
+                                <li class="hotro"><a href="/ho-tro">Hỗ trợ</a></li>
+                                <li class="kygui"><a href="/quan-ly-van-chuyen">Ký gửi</a></li>
+                                <li><a href="/dang-xuat">Đăng xuất</a></li>
+                            </ul>
+                        </nav>
+                        <div class="menu-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer id="site-footer" class="white">
+                <aside class="above-cont sec text-center">
+                    <div class="container">
+                        <aside id="footer-logo" class="main-logo">
+                            <a class="block" href="/trang-chu">
+                                <img src="/App_Themes/vcdqg/images/footer-logo.png" alt="" /></a>
+                        </aside>
+                        <div class="footer-desc">
+                            Chúng tôi hiểu rằng, sứ mệnh của mình là giúp các chủ shop kinh doanh tại Việt Nam tìm được nguồn hàng 
+							rẻ nhất, chất lượng nhất. Được thấy các bạn ngày càng thành công hơn là niềm hạnh phúc của toàn bộ 
+							nhân viên VITIexpress
+			
+                        </div>
+                        <ul class="ft-socials">
+                            <li><a href="https://www.facebook.com/Vanchuyendaquocgiacom-109110219768408/" target="_blank">
+							<i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <asp:Panel ID="pnLoginFooter" runat="server" Visible="false">
+                <section id="footer-contact" class="sec use-bg" data-bg="/App_Themes/vcdqg/images/bannercontact.png">
+                    <div class="container white">
+                        <h3 class="sec-tit white"><span class="sub">LIÊN HỆ</span></h3>
+                        <ul class="boxes use-cols">
+                            <li class="box col">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Số tài khoản</th>
+                                            <th>Thông tin</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0491000069305</td>
+                                            <td>VietComBank chi nhánh Thăng Long, Hà Nội. Chủ TK: Bùi Mạnh Tiến</td>
+                                        </tr>
+                                        <tr>
+                                            <td>21510002241086</td>
+                                            <td>BIDV chi nhánh Cầu Giấy, Hà Nội. Chủ TK: Bùi Mạnh Tiến</td>
+                                        </tr>
+                                        <tr>
+                                            <td>10523520505017</td>
+                                            <td>Techcombank chi nhánh Nội Bài, Hà Nội. Chủ TK: Bùi Mạnh Tiến</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1506205346000</td>
+                                            <td>Agribank chi nhánh Tây Hồ, Hà Nội. Chủ TK: Bùi Mạnh Tiến</td>
+                                        </tr>
+                                        <tr>
+                                            <td>109867809614</td>
+                                            <td>Vietinbank chi nhánh Nam Thăng Long, Hà Nội. Chủ TK: Bùi Mạnh Tiến</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0987770838  </td>
+                                            <td>Ví điện tử MOMO ( thu 0.3% phí rút tiền )</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </li>
+
+                            <li class="box col">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Địa chỉ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Cổ Nhuế, Bắc Từ Liêm, Hà Nội</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                            <li class="box col">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Hotline</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="tel:0974574999">0974574999</a></td>
+                                            <td><a class="break-word" href="mailto:hotro.vanchuyendaquocgia@gmail.com">hotro.vanchuyendaquocgia@gmail.com</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--container-->
+                </section>
+                </asp:Panel>
+                <aside id="copyR">
+                    <div class="container white inner flex-view center">
+                        <ul class="footer-menu">
+                            <li><a href="/trang-chu">Home</a></li>
+                            <li><a href="#">Dịch vụ</a></li>
+                            <li><a href="#">Sản phẩm hot</a></li>
+                            <li><a href="/dang-ky">Đăng ký</a></li>
+                        </ul>
+                        <div class="txt">&copy; Copyright 2016. by <span class="m-color">VITI Express</span>. All rights reserved.</div>
+                    </div>
+                </aside>
+            </footer>
+        </div>
+
+        
+        <script src="/App_Themes/vcdqg/js/slick.min.js"></script>
+        <script src="/App_Themes/vcdqg/js/jquery.sticky.js"></script>
+        <script src="/App_Themes/vcdqg/js/jquery.animateNumber.min.js"></script>
+        <script src="/App_Themes/vcdqg/js/functions.js"></script>
+        <script src="/App_Themes/NewUI/js/sweet/sweet-alert.js" type="text/javascript"></script>
+        <script src="/App_Themes/NewUI/js/select2/select2.min.js"></script>
+        <%--<script>
+	        var link = window.location.href;
+	        if (link.toLowerCase().indexOf('https') == -1) {
+		        var go = link.toLowerCase().replace("http", "https");	
+		        window.location.assign(go);
+	        }
+        </script>--%>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                LoadSelect();
+                setActiveMenu(window.location.pathname);
+            });
+            function LoadSelect() {
+                $(".select2").select2({});
+                setActive();
+            }
+            function setActive() {
+                $('body').addClass('child-page');
+            }
+            function setActiveMenu(path) {
+
+                if (path.toLowerCase().indexOf('/danh-sach-don-hang') != -1) {
+                    $('#main-nav ul#pri-menu > li.donhang').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/gio-hang') != -1) {
+                    $('#main-nav ul#pri-menu > li.giohang').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/lich-su-giao-dich') != -1) {
+                    $('#main-nav ul#pri-menu > li.taichinh').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/nap-tien') != -1) {
+                    $('#main-nav ul#pri-menu > li.taichinh').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/rut-tien') != -1) {
+                    $('#main-nav ul#pri-menu > li.taichinh').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/bang-tich-luy-diem') != -1) {
+                    $('#main-nav ul#pri-menu > li.taichinh').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/khieu-nai') != -1) {
+                    $('#main-nav ul#pri-menu > li.khieunai').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/thong-tin-nguoi-dung') != -1) {
+                    $('#main-nav ul#pri-menu > li.quanlytaikhoan').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/ho-tro') != -1) {
+                    $('#main-nav ul#pri-menu > li.hotro').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/quan-ly-van-chuyen') != -1) {
+                    $('#main-nav ul#pri-menu > li.kygui').addClass("nav-active");
+                }
+            }
+            function OnClientFileSelected(sender, args) {
+                if ($telerik.isIE) return;
+                else {
+                    truncateName(args);
+                    //var file = args.get_fileInputField().files.item(args.get_rowIndex());
+                    var file = args.get_fileInputField().files.item(0);
+                    showThumbnail(file, args);
+                }
+            }
+
+
+            function truncateName(args) {
+                var $span = $(".ruUploadProgress", args.get_row());
+                var text = $span.text();
+                if (text.length > 23) {
+                    var newString = text.substring(0, 23) + '...';
+                    $span.text(newString);
+                }
+            }
+
+            function showThumbnail(file, args) {
+
+                var image = document.createElement("img");
+
+                image.file = file;
+                image.className = "ab img-responsive";
+
+                var $row = $(args.get_row());
+                $row.parent().className = "row ruInputs list-unstyled";
+                $row.append(image);
+
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                }(image));
+                var ret = reader.readAsDataURL(file);
+                var canvas = document.createElement("canvas");
+
+                ctx = canvas.getContext("2d");
+                image.onload = function () {
+                    ctx.drawImage(image, 100, 100);
+                };
+
+            }
+            function updatestatusnoti(id, username, orderid) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Default.aspx/UpdateNotification",
+                    data: "{ID:'" + id + "',UserName:'" + username + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (msg) {
+                        if (msg.d == "ok") {
+                            window.location.href = "/chi-tiet-don-hang/" + orderid;
+                        }
+                    },
+                    error: function (xmlhttprequest, textstatus, errorthrow) {
+                        alert('lỗi');
+                    }
+                });
+            }
+        </script>
+    </form>
+</body>
+</html>

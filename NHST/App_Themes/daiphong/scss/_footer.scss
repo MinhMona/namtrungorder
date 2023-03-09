@@ -1,0 +1,65 @@
+#footer {
+  .ft-infos {
+    background-color: #2772db;
+    color: white;
+    padding: 40px 0;
+
+    .ft-logo {
+      display: block;
+      margin-bottom: 25px;
+
+      .logo-text {
+        color: white;
+        line-height: 30px;
+        font-size: 25px;
+
+        .hl-txt {
+          color: white;
+        }
+      }
+    }
+
+    .ftif-col {
+      float: left;
+      width: 25%;
+
+      a:hover {
+        border-bottom: 1px solid white;
+      }
+
+      .ft-nav {
+        list-style: none;
+
+        > li {
+          margin-top: 10px;
+
+          i {
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .ft-ct {
+        margin-top: 10px;
+
+        .contact-method__sub {
+          font-weight: 300;
+          color: #b1b1b1;
+        }
+
+        .contact-method__main {
+          font-weight: 400;
+          font-size: 14px;
+          word-break: break-word;
+        }
+      }
+    }
+  }
+
+  .ft-sys {
+    color: #fff;
+    background-color: #5284c9;
+    line-height: 20px;
+    padding: 10px 0
+  }
+}

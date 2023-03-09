@@ -1,0 +1,125 @@
+@media screen and (max-width: 1150px) {
+ 
+}
+
+@media screen and (max-width: 930px) {
+  body {
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
+  }
+  body.menuin {
+    margin-left: 240px;
+    margin-right: -240px;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw
+  }
+
+  #header {
+    .hd-main {
+      padding: 10px 0;
+    }
+
+    .nav-ul {
+      li {
+        border: unset;
+
+        &:first-child {
+          border: unset;
+        }
+      }
+    }
+
+    .hd-bot {
+      padding: 25px 0;
+    }
+
+    .logo {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 15px;
+      padding-right: unset;
+      min-width: unset;
+      z-index: 1;
+      width: auto;
+      .img {
+        height: 50px;
+        width: auto;
+      }
+
+      a {
+        height: 100%;
+      }
+
+      img {
+        max-height: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 780px) {
+  #header {
+
+    .hd-right {
+      display: block;
+    }
+
+    .search-form {
+      margin: 0 0 8px 0;
+      width: 100%;
+    }
+  }
+
+}
+
+@media screen and (max-width: 650px) {
+   #header {
+
+    .hd-top {
+      padding: 5px 0;
+    }
+
+     .hdt__info {
+       float: none;
+       width: 100%;
+       margin-bottom: 3px;
+     }
+
+     .hdt__auth {
+       float: none;
+       width: 100%;
+       text-align: center;
+     }
+   }
+}
+
+@media screen and (max-width: 600px) {
+
+}
+
+@media screen and (max-width: 500px) {
+  body.menuin {
+    margin-left: 225px;
+    margin-right: -225px;
+  }
+
+
+}
+
+@media screen and (max-width: 450px) {}
+
+@media screen and (max-width: 400px) {
+  #header {
+     .hdt__info {
+       display: block;
+     }
+
+     .hdt__info-block:not(:last-child) {
+       padding-right: unset;
+     }
+  }
+}
+
+/* ========================== CHILD PAGE ========================== */

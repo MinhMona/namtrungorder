@@ -1,0 +1,114 @@
+#footer {
+  .ft-infos {
+    @extend %sec-pad2;
+    background-color: #7d1518;
+    color: white;
+    font-weight: 500;
+
+    .logo {
+      float: left;
+      width: 23%;
+      text-align: center;
+
+      .img {
+        display: inline-block;
+        width: 200px;
+        margin: 0 auto;
+        img {
+          margin: 0 auto;
+          display: block;
+        }
+      }
+    }
+
+    .facebook-frame {
+      float: right;
+      width: 23%;
+      text-align: center;
+    }
+
+    .navct-wrap {
+      float: left;
+      width: 54%;
+      margin: 0 -15px;
+      padding: 0 30px;
+      @extend %clear; 
+    }
+
+    .navct__child {
+      float: left;
+      width: 33.3333%;
+      padding: 0 15px;
+    }
+
+    .navct-tt {
+      @include fz18();
+      font-weight: 600;
+      padding-bottom: 15px;
+    }
+
+    .list-navct {
+      list-style: none;
+      li {
+        margin-bottom: 12px;
+        a:hover {
+          text-decoration: underline;
+          color: white;
+        }
+      }
+    }
+
+    @include br(930px) {
+      padding: 50px 0;
+      .logo {
+        width: 100%;
+        float: none;
+        padding-bottom: 30px;
+      }
+
+      .navct-wrap {
+        width: 70%;
+      }
+
+      .facebook-frame {
+        width: 30%;
+      }
+    }
+
+    @include br(780px) {
+      .navct-wrap {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navct__child {
+        padding: 0 15px 20px;
+      }
+
+      .facebook-frame {
+        width: 100%;
+      }
+    }
+    
+    @include br(500px) {
+      .navct__child {
+        width: 50%;
+        padding: 0 0 20px;
+      }
+    }
+  }
+
+  .ft-sys {
+    color: white;
+    background-color: #701316;
+    line-height: 20px;
+    padding: 10px 0;
+    .sys-ct {
+      padding: 10px 0;
+    }
+    a img {
+      display: initial;
+    }
+  }
+}

@@ -1,0 +1,238 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PDVMasterLogined.master.cs" Inherits="NHST.PDVMasterLogined" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>Phong Đại Việt</title>
+    <link rel="stylesheet" href="/App_Themes/pdv/assets/css/style.css" media="all">
+    <link rel="stylesheet" href="/App_Themes/pdv/assets/css/responsive.css" media="all">
+    <link href="/App_Themes/NewUI/js/select2/select2.css" rel="stylesheet" />
+    <link href="/App_Themes/NewUI/js/sweet/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <script src="/App_Themes/pdv/assets/js/jquery-2.2.2.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10&appId=143368942917458";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="rsm" runat="server" EnablePageMethods="true" EnablePartialRendering="true">
+        </telerik:RadScriptManager>
+        <div class="page-wrap">
+            <header class="header" id="header">
+                <div class="top-menu clearfix">
+                    <div class="container clearfix">
+                        <asp:Literal ID="ltrConfig" runat="server" EnableViewState="false"></asp:Literal>
+                        <div class="top-menu-right">
+                            <asp:Literal ID="ltrUser" runat="server"></asp:Literal>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-logo clearfix">
+                    <div class="container">
+                        <div class="logo">
+                            <a href="/trang-chu">
+                                <asp:Literal ID="ltrLogo" runat="server"></asp:Literal>
+                            </a>
+                        </div>
+                        <div class="app">
+                            <asp:Literal ID="ltrLinkExtension" runat="server"></asp:Literal>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-main">
+                    <div class="container">
+                        <a class="navbar-toggle">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <nav class="nav-wrap" id="main-nav">
+                            <div class="nav-overlay"></div>
+                            <ul class="nav-ul">
+                                <li><a class="giohang" href="/gio-hang">giỏ hàng</a></li>
+                                <li><a class="donhang" href="/danh-sach-don-hang">đơn hàng</a></li>
+                                <li><a class="taichinh" href="/lich-su-giao-dich">tài chính</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="/lich-su-giao-dich">Lịch sử giao dịch</a></li>
+                                        <li><a href="/nap-tien">Nạp tiền</a></li>
+                                        <li><a href="/rut-tien">Rút tiền</a></li>
+                                        <li><a href="/bang-tich-luy-diem">Điểm tích lũy</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="khieunai" href="/khieu-nai">khiếu nại</a></li>
+                                <li><a class="quanlytaikhoan" href="/thong-tin-nguoi-dung">quản lý tài khoản</a></li>
+                                <li><a class="hotro" href="/ho-tro">hỗ trợ</a></li>
+                                <li><a class="" href="/dang-xuat">Đăng xuất</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer class="footer">
+                <div class="container">
+                    <div class="top-footer clearfix">
+                        <div class="footer-item">
+                            <p>
+                                <asp:Literal ID="ltrAboutUs" runat="server"></asp:Literal>
+                            </p>
+                            <%--<h3>về chúng tôi</h3>
+                            <p>ALIVIETNAM ung cấp dịch vụ mua hàng và vận chuyển từ nước ngoài về Việt Nam. Được thiết kế để việc mua bán, ký gửi hàng hóa được thuận tiện nhất cho người dùng (ngoại trừ các mặt hàng hóa nằm trong danh sách cấm mua bán & vận chuyển theo luật pháp Việt Nam). Ngoài ra còn cung cấp các dịch vụ đàm phán thương mại, tìm nguồn hàng chất lượng với giá cả phải chăng cho các nhà kinh doanh tại Việt Nam.</p>--%>
+                        </div>
+                        <div class="footer-item">
+                            <h3>thông tin</h3>
+                            <asp:Literal ID="ltrFooterMenu" runat="server"></asp:Literal>
+                            <h3>HOTLINE:
+                                <br>
+                                <asp:Literal ID="ltrHotline" runat="server"></asp:Literal>
+                            </h3>
+                        </div>
+                        <div class="footer-item">
+                            <h3>liên hệ</h3>
+                            <asp:Literal ID="ltrAddress" runat="server"></asp:Literal>
+                            <p>
+                                <asp:Literal ID="ltrLinkSocial1" runat="server"></asp:Literal>
+                            </p>
+                        </div>
+                        <div class="footer-item">
+                            <h3>fanpage facebook</h3>
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook&tabs=timeline&width=260px&height=200px&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=163887910846059" width="260px" height="200px" style="border: none; overflow: hidden" scrolling="no" frameborder="0" allowtransparency="true"></iframe>
+                        </div>
+                    </div>
+                    <div class="end-footer">
+                        <asp:Literal ID="ltrfooter" runat="server"></asp:Literal>
+                        <%--<p>ALIVIETNAM 2017.  ALL RIGHTS RESERVED</p>
+                        <p>DESIGN BY <span>ALIVIETNAM.COM</span></p>--%>
+                    </div>
+                </div>
+            </footer>
+
+            <div class="suport">
+                <a href="#"><i class="fa fa-comments" aria-hidden="true"></i>Hỗ trợ trực tuyến</a>
+            </div>
+            <ul class="link-fixed">
+                <asp:Literal ID="ltrLinkSocial2" runat="server"></asp:Literal>
+            </ul>
+            <div class="scroll-top">
+                <a href="javascript:;">
+                    <img src="/App_Themes/pdv/assets/images/up.png" alt="#"></a>
+            </div>
+        </div>
+        <script src="/App_Themes/pdv/vendors/slick/slick.js"></script>
+        <script src="/App_Themes/pdv/assets/js/main.js"></script>
+        <script src="/App_Themes/NewUI/js/sweet/sweet-alert.js" type="text/javascript"></script>
+        <script src="/App_Themes/NewUI/js/select2/select2.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                LoadSelect();
+                setActiveMenu(window.location.pathname);
+            });
+            function LoadSelect() {
+                $(".select2").select2({});
+                setActive();
+            }
+            function setActive() {
+                $('body').addClass('child-page');
+            }
+            function setActiveMenu(path) {
+
+                if (path.toLowerCase().indexOf('/danh-sach-don-hang') != -1) {
+                    $('.nav-ul li a.donhang').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/gio-hang') != -1) {
+                    $('.nav-ul li a.giohang').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/lich-su-giao-dich') != -1) {
+                    $('.nav-ul li a.taichinh').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/nap-tien') != -1) {
+                    $('.nav-ul li a.taichinh').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/rut-tien') != -1) {
+                    $('.nav-ul li a.taichinh').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/bang-tich-luy-diem') != -1) {
+                    $('.nav-ul li a.taichinh').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/khieu-nai') != -1) {
+                    $('.nav-ul li a.khieunai').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/thong-tin-nguoi-dung') != -1) {
+                    $('.nav-ul li a.quanlytaikhoan').addClass("nav-active");
+                }
+                else if (path.toLowerCase().indexOf('/ho-tro') != -1) {
+                    $('.nav-ul li a.hotro').addClass("nav-active");
+                }
+            }
+            function OnClientFileSelected(sender, args) {
+                if ($telerik.isIE) return;
+                else {
+                    truncateName(args);
+                    //var file = args.get_fileInputField().files.item(args.get_rowIndex());
+                    var file = args.get_fileInputField().files.item(0);
+                    showThumbnail(file, args);
+                }
+            }
+
+
+            function truncateName(args) {
+                var $span = $(".ruUploadProgress", args.get_row());
+                var text = $span.text();
+                if (text.length > 23) {
+                    var newString = text.substring(0, 23) + '...';
+                    $span.text(newString);
+                }
+            }
+
+            function showThumbnail(file, args) {
+
+                var image = document.createElement("img");
+
+                image.file = file;
+                image.className = "ab img-responsive";
+
+                var $row = $(args.get_row());
+                $row.parent().className = "row ruInputs list-unstyled";
+                $row.append(image);
+
+
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                }(image));
+                var ret = reader.readAsDataURL(file);
+                var canvas = document.createElement("canvas");
+
+                ctx = canvas.getContext("2d");
+                image.onload = function () {
+                    ctx.drawImage(image, 100, 100);
+                };
+
+            }
+        </script>
+        <style>
+            .dropdown-custom {
+                position: relative;
+            }
+        </style>
+    </form>
+</body>
+</html>

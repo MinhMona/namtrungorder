@@ -1,0 +1,106 @@
+#footer {
+  .ft-infos {
+    padding: 60px 0;
+    .footer-col-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 20px;
+
+      .col__child {
+        .title {
+          color: black;
+          text-transform: uppercase;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+
+        > ul {
+          list-style: none;
+        }
+
+        .ft-contact {
+          .contact__item {
+            padding: 5px 0;
+            .main {
+              font-weight: 600;
+              color: $color-main;
+            }
+
+            .main-2 {
+              font-weight: 500;
+              color: black;
+            }
+          }
+        }
+        
+        .ft-nav {
+          .nav__item {
+            padding: 5px 0;
+
+            &:hover {
+              color: $color-main;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .ft-social {
+          .social__item {
+            display: inline-block;
+            border-radius: 4px;
+            
+            > a {
+              width: 40px;
+              height: 40px;
+              text-align: center;
+              color: white;
+              display: flex;
+              flex-flow: row wrap;
+              justify-content: center;
+              align-items: center;
+              
+            }
+
+            &.fb {
+              background-color: #506dab;
+
+              &:hover {
+                background-color: darken( #506dab, 10%)
+              }
+            }
+
+            &.tw {
+              background-color: #29c6f7;
+              &:hover {
+                background-color: darken( #29c6f7, 10%)
+              }    
+            }
+
+            &.ins {
+              background-color: #ec4126;
+              &:hover {
+                background-color: darken( #ec4126, 10%)
+              }    
+            }
+
+            &.sky {
+              background-color: #00aff0;
+              &:hover {
+                background-color: darken( #00aff0, 10%)
+              }    
+            }
+
+          }
+        }
+
+      }
+    }
+  }
+
+  .ft-sys {
+    color: #fff;
+    background-color: #5284c9;
+    line-height: 20px;
+    padding: 10px 0
+  }
+}
